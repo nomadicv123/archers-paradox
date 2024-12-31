@@ -1,0 +1,333 @@
+{
+    "text": "Archer’s Monologue: \"The creek twists through the homestead like a living question mark, daring me to seek its answer. Salmon flash beneath the water—glorious, fleeting morsels. The mud squishes under my paws, reminding me that too much curiosity might land me in the drink. But what’s life without risk? Boredom, that’s what.\"",
+    "choices": {
+      "Pad closer to the bank": "edge_of_water",
+      "Inspect the old log bridge": "log_bridge",
+      "Retreat to the fence": "fence.json",
+      "Return to the coop": "coop_exit.json"
+    },
+    "rewards": {
+      "points": 5
+    },
+  
+    "edge_of_water": {
+      "text": "Archer’s paws sink into the dark, cool earth at the creek’s edge. An undercurrent of salmon scent floods his senses. A rustle in the reeds draws his attention. Archer’s Monologue: \"Fish or mystery? Perhaps both. This watery buffet tempts me like a riddle I can’t resist.\"",
+      "choices": {
+        "Investigate the rustling reeds": "rustling_reeds",
+        "Attempt to fish": "attempt_fishing",
+        "Step away from the water": "creek_hub"
+      },
+      "rewards": {
+        "points": 5
+      }
+    },
+  
+    "rustling_reeds": {
+      "text": "Crouching low, Archer peers through the reeds. A stray cat—thin and grizzled—eyes him warily. It hisses, a ghost of a warning. Archer’s Monologue: \"A fellow nomad, dripping with distrust. I recall Bella’s year-long standoff with humans... I could provoke, or I could charm—both amuse me equally.\"",
+      "choices": {
+        "Approach gently": "approach_stray",
+        "Puff up and challenge": "challenge_stray",
+        "Back away quietly": "creek_hub"
+      }
+    },
+  
+    "approach_stray": {
+      "text": "Archer pads closer, tail lowered in a show of mild courtesy. The stray’s gaze remains sharp, but a spark of curiosity replaces fear. Archer’s Monologue: \"Trust is a tricky current. Bella waded through it slowly, but I dove in quicker. Who’s right? Maybe neither, but the creek still flows.\" The stray mumbles, \"You... from that Homestead?\"",
+      "choices": {
+        "Invite the stray to follow": "stray_invitation",
+        "Offer some salmon if you manage to catch any": "attempt_fishing",
+        "Return to the creek bank": "creek_hub"
+      },
+      "rewards": {
+        "points": 10
+      }
+    },
+  
+    "challenge_stray": {
+      "text": "Archer arches his spine, letting out a confident hiss that echoes like a half-asked question. The stray’s fur stands on end, but its eyes flicker with uncertainty. Archer’s Monologue: \"Intimidation can reveal truth: some stand their ground, others flee. I find both outcomes enlightening in their own way.\"",
+      "choices": {
+        "See if the stray stands its ground": "stray_response",
+        "Ease off and show no harm": "approach_stray",
+        "Turn tail and leave": "creek_hub"
+      },
+      "consequences": {
+        "points": -5
+      }
+    },
+  
+    "stray_response": {
+      "text": "The stray snarls, tail trembling with tension. In a swift blur, it bolts through the reeds, vanishing into the night. Archer’s Monologue: \"Some spirits aren’t ready for a conversation with chaos. Pity—I might have learned something from its fears.\"",
+      "choices": {
+        "Reflect and move on": "creek_hub"
+      },
+      "rewards": {
+        "points": 0
+      }
+    },
+  
+    "stray_invitation": {
+      "text": "The stray hesitates, ears twitching. \"Humans? I don’t trust ‘em.\" Archer’s Monologue: \"Bella once shunned those two-legged servants for a year, while I saw opportunity in their bowls and hearth. We each choose our illusions of safety—or freedom.\"",
+      "choices": {
+        "Reassure the stray about the Homestead": "reassure_stray",
+        "Insist and become pushy": "pushy_stray",
+        "Let the stray decide alone": "creek_hub"
+      }
+    },
+  
+    "reassure_stray": {
+      "text": "Archer lowers his tone, recounting how Bella’s shield of distrust melted under gentle persistence. The stray’s eyes glisten. \"Maybe I’ll visit someday… not yet.\" Then it vanishes softly into the reeds, carrying less fear in its steps.",
+      "choices": {
+        "Return to the creek bank": "creek_hub"
+      },
+      "rewards": {
+        "points": 5
+      }
+    },
+  
+    "pushy_stray": {
+      "text": "Archer flicks his tail, impatience curling his whiskers. \"Believe me, the Homestead is safer than this endless rummaging. You’ll find no answers among rotted logs.\" The stray bristles at the condescension. \"I’ve heard enough.\" It slips away, leaving only a ripple of regret in its wake.",
+      "choices": {
+        "Sigh and let it go": "creek_hub"
+      },
+      "consequences": {
+        "points": -5
+      }
+    },
+  
+    "attempt_fishing": {
+      "text": "Archer crouches near the water, every sense attuned to the flick of silver tails below. The current hisses around the rocks. Archer’s Monologue: \"To snatch a salmon from this torrent is a lesson in precision—and folly. But who am I if not a cat who courts folly?\"",
+      "choices": {
+        "Swipe at a salmon": "fish_success",
+        "Decide it's too risky": "creek_hub"
+      }
+    },
+  
+    "fish_success": {
+      "text": "A flash of paw, a glint of scales. Archer extracts a thrashing salmon onto the bank. Archer’s Monologue: \"A single moment of boldness reaps a feast. Humans might scold my mess, but they lack the artistry of instinct. My prize, my rules.\"",
+      "choices": {
+        "Feast on the salmon": "feast_salmon",
+        "Share with the stray": "approach_stray",
+        "Take it back to the Homestead": "creek_hub"
+      },
+      "rewards": {
+        "points": 15,
+        "items": ["Fresh Salmon"]
+      }
+    },
+  
+    "feast_salmon": {
+      "text": "Archer devours the fish in delicate bites, savoring each morsel of briny victory. Archer’s Monologue: \"Ah, the taste of triumph. Let the creek keep its endless flow—I prefer the certainty of a successful hunt. Though a nap does tempt me… or perhaps another adventure.\"",
+      "choices": {
+        "Continue exploring the creek": "creek_hub"
+      },
+      "rewards": {
+        "points": 10
+      }
+    },
+  
+    "log_bridge": {
+      "text": "A fallen log spans the creek’s narrowest bend, the water roiling below. Archer’s Monologue: \"Crossing this could be brilliance or madness. But is there really a difference? The outcome decides, I suppose.\"",
+      "choices": {
+        "Attempt to cross": "cross_log",
+        "Look for another route": "creek_hub",
+        "Return to the coop": "coop_exit.json"
+      },
+      "rewards": {
+        "points": 5
+      }
+    },
+  
+    "cross_log": {
+      "text": "Archer grips the mossy bark with practiced grace. The creek’s roar intensifies, wind rattles the leaves. Archer’s Monologue: \"Balance is everything. One slip, and I’m a cat-turned-river-rat. A cautionary tale? Or a legend of daring? Let’s find out.\"",
+      "choices": {
+        "Steady yourself carefully": "log_success",
+        "Lose balance": "log_failure"
+      }
+    },
+  
+    "log_success": {
+      "text": "Archer glides over the log, breath steady, tail poised. He leaps onto the far side with a confident flick of his ears. Archer’s Monologue: \"I never doubted. Now, the deeper woods beckon—mystery, danger, maybe answers. Or maybe just more questions.\"",
+      "choices": {
+        "Explore the deeper woods": "deep_woods",
+        "Return to the log bridge": "creek_hub"
+      },
+      "rewards": {
+        "points": 15
+      }
+    },
+  
+    "log_failure": {
+      "text": "A miscalculation—a shift of bark, a slip of claw. Archer claws frantically at the log, nearly dropping into the churning creek. At the last moment, he regains footing, soaked but breathing. Archer’s Monologue: \"A near tragedy… or a reminder that even I can misstep. Fascinating.\"",
+      "choices": {
+        "Turn around, drenched": "creek_hub",
+        "Try crossing again (Carefully)": "cross_log"
+      },
+      "consequences": {
+        "points": -10
+      }
+    },
+  
+    "deep_woods": {
+      "text": "Stepping past the creek, Archer finds himself in a cathedral of towering pines and mossy floors. Night creatures murmur in the shadows. Archer’s Monologue: \"Bella roamed places like this, refusing human solace. Me? I embraced it. Yet here, I recall that primal thrill of being untamed.\"",
+      "choices": {
+        "Investigate a faint mewing": "faint_mewing",
+        "Search for hidden paths": "woods_paths",
+        "Turn back": "creek_hub"
+      },
+      "rewards": {
+        "points": 5
+      }
+    },
+  
+    "faint_mewing": {
+      "text": "Following the plaintive cries, Archer discovers two trembling kittens huddled in a hollow log. Archer’s Monologue: \"Their mother is gone, and fear clings to them like cobwebs. I recall Bella’s story of nearly losing me to these very woods. Fate, repeating itself? Or an invitation to show mercy?\"",
+      "choices": {
+        "Comfort the kittens": "comfort_kittens",
+        "Leave them be": "deep_woods",
+        "Return with salmon (if you have Fresh Salmon)": "feed_kittens"
+      }
+    },
+  
+    "comfort_kittens": {
+      "text": "Archer nudges one kitten, offering a low purr of reassurance. Their wide eyes settle slightly. Archer’s Monologue: \"I can’t solve every cat’s plight, but a kind gesture? That might tilt the cosmos in their favor, if only for tonight.\"",
+      "choices": {
+        "Carry them to the Homestead (high risk)": "kittens_to_home",
+        "Retreat quietly": "deep_woods"
+      },
+      "rewards": {
+        "points": 10
+      }
+    },
+  
+    "feed_kittens": {
+      "requirements": ["Fresh Salmon"],
+      "text": "Unwrapping your hard-won fish, you delicately portion out morsels for the famished kittens. Archer’s Monologue: \"A contradiction: I gather fish for my own grand hunger, yet I share it freely with these mewling orphans. Perhaps generosity is just another form of ego, but who’s to judge?\"",
+      "choices": {
+        "Carry them to the Homestead": "kittens_to_home",
+        "Leave them with the remains": "deep_woods"
+      },
+      "rewards": {
+        "points": 15
+      }
+    },
+  
+    "kittens_to_home": {
+      "text": "Archer gently scoops up one kitten by the scruff. The other follows. Archer’s Monologue: \"I’ll guide them to the Homestead—where a soft bed or a human lap might quell their trembling hearts. If Bella and I survived, so can they.\"",
+      "choices": {
+        "Head back to the coop (ends creek story)": "coop_exit.json"
+      },
+      "rewards": {
+        "points": 20,
+        "items": ["Rescued Kittens"]
+      }
+    },
+  
+    "woods_paths": {
+      "text": "A winding trail threads between ferns, leading to a moonlit clearing. Another path vanishes deeper into darkness. Archer’s Monologue: \"Paths always diverge. Choice defines destiny—unless destiny’s an illusion. Or maybe I just like the drama of deciding.\"",
+      "choices": {
+        "Take the quieter clearing": "quiet_clearing",
+        "Venture deeper into the shadows": "shadowed_path",
+        "Return toward the creek": "creek_hub"
+      },
+      "rewards": {
+        "points": 5
+      }
+    },
+  
+    "quiet_clearing": {
+      "text": "The clearing glows under starlight. A tattered blanket lies near a stump, carrying a faint whiff of human presence. Archer’s Monologue: \"Humans roam here, fishing, camping, leaving traces of themselves. Bella once avoided them all. Me, I prefer to glean what I can from their leftovers.\"",
+      "choices": {
+        "Sniff around the blanket": "old_blanket",
+        "Leave quietly": "deep_woods"
+      }
+    },
+  
+    "old_blanket": {
+      "text": "Archer nudges the blanket aside, uncovering a small pouch of dried fish flakes. Archer’s Monologue: \"A curiosity: not as lavish as fresh salmon, but still a morsel for the taking. I do like to keep my options open.\"",
+      "choices": {
+        "Take the fish flakes": "take_flakes",
+        "Ignore them": "deep_woods"
+      }
+    },
+  
+    "take_flakes": {
+      "text": "Archer quietly claims the pouch. Archer’s Monologue: \"One never knows when a bribe or a quick snack might tip the cosmic scales. Knowledge is power; fish flakes, sometimes more so.\"",
+      "choices": {
+        "Return to the clearing": "deep_woods"
+      },
+      "rewards": {
+        "points": 10,
+        "items": ["Fish Flakes"]
+      }
+    },
+  
+    "shadowed_path": {
+      "text": "Deeper among the trees, the night air grows colder. The roar of the creek fades behind you. Archer’s Monologue: \"Something in this darkness resonates with old memories: nights spent half-wild, half-curious. Is there danger, or just my reflection?\"",
+      "choices": {
+        "Press on": "mysterious_cabin",
+        "Turn back": "deep_woods"
+      },
+      "rewards": {
+        "points": 5
+      }
+    },
+  
+    "mysterious_cabin": {
+      "text": "A crumbling cabin looms, vines strangling its broken walls. The door hangs ajar. Archer’s Monologue: \"Civilization’s ghost, abandoned. Or is it? Curiosity pulses in my paws. But exploring might unearth secrets best left buried—or might amuse me greatly.\"",
+      "choices": {
+        "Enter the cabin": "cabin_interior",
+        "Circle around outside": "circle_cabin",
+        "Retreat to safer ground": "deep_woods"
+      }
+    },
+  
+    "cabin_interior": {
+      "text": "Inside, dust motes swirl in the lantern light you carry within your eyes. A pile of rags shifts in a corner. Archer’s Monologue: \"Could that be another cat? A raccoon? Or just the wind in the fabric? Either way, I’ve come this far.\"",
+      "choices": {
+        "Investigate the corner": "corner_investigation",
+        "Flee the eerie cabin": "deep_woods"
+      }
+    },
+  
+    "corner_investigation": {
+      "text": "Archer slinks forward. It’s merely tattered cloth, swaying in a draft. But among them gleams a battered collar tag, half-obscured by grime. Archer’s Monologue: \"A relic from a cat who once walked with humans, maybe. Every object holds a story, if I bother to listen.\"",
+      "choices": {
+        "Take the collar tag": "take_tag",
+        "Leave it be": "cabin_interior"
+      }
+    },
+  
+    "take_tag": {
+      "text": "Archer hooks a claw around the collar tag, brushing off the dust. A faint name, scratched beyond recognition, catches the light. Archer’s Monologue: \"A story lost to time. I’ll carry it forward, a reminder that identity is both fragile and stubborn.\"",
+      "choices": {
+        "Leave the cabin": "deep_woods"
+      },
+      "rewards": {
+        "points": 10,
+        "items": ["Old Collar Tag"]
+      }
+    },
+  
+    "circle_cabin": {
+      "text": "Circling outside, Archer notes fox tracks etched in mud. Possibly Basil or a wild cousin. Archer’s Monologue: \"Foxes dance between cunning and camaraderie. This land belongs to them as much as to me, or so they believe. How quaint.\"",
+      "choices": {
+        "Return to the path": "deep_woods"
+      },
+      "rewards": {
+        "points": 5
+      }
+    },
+  
+    "creek_hub": {
+      "text": "Archer stands again at the creek’s bend, moonlight glinting off the water. Bella’s memories and his own brush shoulders in the current. Archer’s Monologue: \"Time sweeps us forward, but the past floats beneath us. Best to flow with it, or we’ll drown in nostalgia. Now, which flow shall I choose next?\"",
+      "choices": {
+        "Pad closer to the bank": "edge_of_water",
+        "Check the log bridge again": "log_bridge",
+        "Return to the fence": "fence.json",
+        "Head to the garden": "garden.json",
+        "Go back to the coop": "coop_exit.json",
+        "Investigate the deeper woods (if crossed)": "deep_woods"
+      }
+    }
+  }
+  
