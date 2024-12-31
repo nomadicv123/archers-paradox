@@ -319,8 +319,8 @@ def main():
     # ------------------------------
     with st.sidebar:
         st.image(
-            "https://via.placeholder.com/100x100.png?text=LOGO",
-            width=100
+            "assets/mobilelogo.png",
+            width=200
         )
         st.header("Player Stats")
         st.write(f"**Points:** {st.session_state.points}")
