@@ -31,13 +31,14 @@
    http://localhost:8501
 to play Archer’s Paradox in your browser.
 
-Deployment
+
+## Deployment
 This game is deployed on Streamlit Community Cloud.
 
-Direct link: 
+## Direct link: 
 To deploy updates, push changes to the main branch. The app auto-rebuilds.
 
-Contributing
+## Contributing
 We welcome pull requests for:
 
 Additional story branches or items.
@@ -45,6 +46,6 @@ Bug fixes, UI enhancements.
 New Archer monologues.
 Please open an issue or PR in this repo.
 
-License
+## License
 Code: Licensed under the MIT License.
 Story Content: Unless stated otherwise, the narrative (JSON files, text) are under CC BY-NC 4.0.
