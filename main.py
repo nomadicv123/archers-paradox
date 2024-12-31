@@ -2,7 +2,7 @@ import streamlit as st
 import json
 import os
 from io import BytesIO
-from reportlab.pdfgen import canvas
+# from reportlab.pdfgen import canvas
 
 # Placeholder dictionary for node-based Archerisms (feel free to expand!)
 archerisms_per_scene = {
