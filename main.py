@@ -315,7 +315,7 @@ def main():
         st.session_state.visited_nodes = set()
 
     # ------------------------------
-    # Sidebar with Placeholder Logo
+    # Sidebar with Logo
     # ------------------------------
     with st.sidebar:
         st.image(
@@ -367,20 +367,20 @@ def main():
                 )
 
         # ---- "Share This Moment" (PDF) ----
-        if st.button("Share This Moment"):
-            node_data = get_node_data(st.session_state.story_data, st.session_state.current_node)
-            pdf_buffer = generate_pdf(
-                st.session_state.points,
-                st.session_state.inventory,
-                st.session_state.current_node,
-                node_data
-            )
-            st.download_button(
-                label="Download Archer’s Reflection (PDF)",
-                data=pdf_buffer,
-                file_name="Archer_Paradox_Reflection.pdf",
-                mime="application/pdf"
-            )
+        #if st.button("Share This Moment"):
+        #    node_data = get_node_data(st.session_state.story_data, st.session_state.current_node)
+        #    pdf_buffer = generate_pdf(
+        #        st.session_state.points,
+        #        st.session_state.inventory,
+        #        st.session_state.current_node,
+        #        node_data
+        #    )
+        #    st.download_button(
+        #        label="Download Archer’s Reflection (PDF)",
+        #       data=pdf_buffer,
+        #        file_name="Archer_Paradox_Reflection.pdf",
+        #       mime="application/pdf"
+        #    )
 
     # 2) Retrieve the current node data
     node_data = get_node_data(st.session_state.story_data, st.session_state.current_node)
