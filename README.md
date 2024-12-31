@@ -18,12 +18,18 @@
    cd archers-paradox
 
 2. Install dependencies:
+   ```bash
    pip install -r requirements.txt
 
-3. Run locally:
+4. Run locally:
+   ```bash
    streamlit run main.py
 
-4. Visit http://localhost:8501 to play Archer’s Paradox in your browser.
+
+6. Visit
+   ```bash
+   http://localhost:8501
+to play Archer’s Paradox in your browser.
 
 Deployment
 This game is deployed on Streamlit Community Cloud.
