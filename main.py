@@ -256,7 +256,11 @@ def integrate_expansion(expansion_data: dict):
     for node_key, choices in unlockables.items():
         if node_key in st.session_state.story_data:
             for choice_label, choice_value in choices.items():
-                st.session_state.story_data[node_key]["choices"][choice_label] = choice_value
+                # Ensure that choice_value is either a string or a dictionary
+                if isinstance(choice_value, (str, dict)):
+                    st.session_state.story_data[node_key]["choices"][choice_label] = choice_value
+                else:
+                    st.error(f"Invalid choice value type for '{choice_label}' in node '{node_key}': {type(choice_value)}")
 
 # ----------------------------------------------
 # Apply rewards or consequences
@@ -407,17 +411,21 @@ def main():
             uploaded_expansion = st.file_uploader("Upload Expansion JSON", type=["json"])
             if uploaded_expansion is not None:
                 try:
-                    # Save the uploaded file to the story_data folder
-                    expansion_filename = uploaded_expansion.name
-                    expansion_filepath = os.path.join("story_data", expansion_filename)
-                    with open(expansion_filepath, "wb") as f:
-                        f.write(uploaded_expansion.getbuffer())
+                    # Ensure that uploaded_expansion is an UploadedFile
+                    if hasattr(uploaded_expansion, 'name') and hasattr(uploaded_expansion, 'getbuffer'):
+                        # Save the uploaded file to the story_data folder
+                        expansion_filename = uploaded_expansion.name
+                        expansion_filepath = os.path.join("story_data", expansion_filename)
+                        with open(expansion_filepath, "wb") as f:
+                            f.write(uploaded_expansion.getbuffer())
 
-                    # Load the expansion JSON and integrate it into session state
-                    expansion_data = load_json_file(expansion_filename)
-                    integrate_expansion(expansion_data)  # Add new branches or nodes
-                    st.success(f"Expansion pack '{expansion_filename}' loaded successfully!")
-                    st.rerun()
+                        # Load the expansion JSON and integrate it into session state
+                        expansion_data = load_json_file(expansion_filename)
+                        integrate_expansion(expansion_data)  # Add new branches or nodes
+                        st.success(f"Expansion pack '{expansion_filename}' loaded successfully!")
+                        st.rerun()
+                    else:
+                        st.error("Uploaded expansion is not a valid file.")
                 except Exception as e:
                     st.error(f"Failed to load expansion pack: {e}")
 
@@ -450,7 +458,8 @@ def main():
     if choices:
         st.subheader("Choices:")
         for choice_label, choice_value in choices.items():
-            if isinstance(choice_value, str):  # Normal unlocked choice
+            # Ensure that choice_value is either a string or a dictionary before proceeding
+            if isinstance(choice_value, str):
                 if choice_value.endswith(".json"):
                     # Load a new JSON file
                     if st.button(choice_label):
@@ -463,11 +472,11 @@ def main():
                             st.rerun()
                     else:
                         st.button(f"{choice_label} (Locked)", disabled=True)
-            elif isinstance(choice_value, dict):  # Locked expansion pack choice
+            elif isinstance(choice_value, dict):
                 tease_message = choice_value.get("tease", "This path requires an expansion pack.")
                 unlock_key = choice_value.get("unlock_key")
                 # Check if the unlock_key is loaded (i.e., its node exists in story_data)
-                if unlock_key and unlock_key in st.session_state.story_data:
+                if isinstance(unlock_key, str) and unlock_key in st.session_state.story_data:
                     # Extract the node key by removing the .json extension
                     node_key = os.path.splitext(unlock_key)[0]
                     if st.button(choice_label):
@@ -477,6 +486,10 @@ def main():
                     # Display as locked with tease message
                     st.button(f"{choice_label} (Locked)", disabled=True)
                     st.markdown(f"*{tease_message}*")
+            else:
+                # Handle unexpected types gracefully
+                st.button(f"{choice_label} (Invalid)", disabled=True)
+                st.error(f"Invalid choice value type for '{choice_label}': {type(choice_value).__name__}")
 
 if __name__ == "__main__":
     main()
