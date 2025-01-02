@@ -2,7 +2,7 @@ import streamlit as st
 import json
 import os
 from io import BytesIO
-from reportlab.pdfgen import canvas  # Uncomment if using PDF generation
+# from reportlab.pdfgen import canvas  # Uncomment if using PDF generation
 
 # Placeholder dictionary for node-based Archerisms (feel free to expand!)
 archerisms_per_scene = {
@@ -358,7 +358,7 @@ def main():
         # Collapsible box for Save/Load Progress
         with st.expander("Save / Load Progress", expanded=False):
             # Load
-            upload_file = st.file_uploader("Load a previously saved JSON", type=["json"])
+            upload_file = st.file_uploader("Load a previously saved JSON", type=["json"], key="load_progress_upload")
             if upload_file is not None:
                 try:
                     data = json.load(upload_file)
@@ -408,7 +408,7 @@ def main():
 
         # ---- Load Expansion Pack ----
         with st.expander("Load Expansion Pack", expanded=False):
-            uploaded_expansion = st.file_uploader("Upload Expansion JSON", type=["json"])
+            uploaded_expansion = st.file_uploader("Upload Expansion JSON", type=["json"], key="load_expansion_upload")
             if uploaded_expansion is not None:
                 try:
                     # Ensure that uploaded_expansion is an UploadedFile
