@@ -3,6 +3,10 @@
     "choices": {
         "Explore the Garden": "garden.json",
         "Investigate the Chicken Coop": "chicken_coop.json",
-        "Climb the Fence": "fence.json"
+        "Climb the Fence": "fence.json",
+        "Schrödinger's Box": {
+            "tease": "This path requires the 'Schrödinger's Box' expansion pack.",
+            "unlock_key": "sc.json"
+        }
     }
 }

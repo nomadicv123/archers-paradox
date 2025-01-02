@@ -1,5 +1,5 @@
 {
-    "text": "Archer’s Monologue: \"Night drapes this old fence in shadows, as though welcoming me to a private stage. The breeze feels like a whisper of admiration from lesser beings. But hush—perhaps this weathered timber holds secrets that yearn for my regal paws.\"",
+    "text": "\"Night drapes this old fence in shadows, as though welcoming me to a private stage. The breeze feels like a whisper of admiration from lesser beings. But hush—perhaps this weathered timber holds secrets that yearn for my regal paws.\"",
     "choices": {
       "Investigate the gap beneath the fence": "investigate_gap",
       "Attempt to climb the fence": "climb_fence",
@@ -20,7 +20,7 @@
     },
   
     "talk_birds": {
-      "text": "Archer’s Monologue: \"Birds indeed, Jax. Our mutual fascination. Though my interest leans more to gourmet potential.\" Jax purrs excitedly, \"Sometimes I think those birds mock me from the treetops. One day, I’ll prove them wrong!\"",
+      "text": "\"Birds indeed, Jax. Our mutual fascination. Though my interest leans more to gourmet potential.\" Jax purrs excitedly, \"Sometimes I think those birds mock me from the treetops. One day, I’ll prove them wrong!\"",
       "choices": {
         "Humor Jax with a plan to outsmart the birds": "bird_plan",
         "Pat Jax on the head and move on": "fence_hub"
@@ -31,7 +31,7 @@
     },
   
     "bird_plan": {
-      "text": "You outline a cunning ambush strategy—stealthy vantage points, well-timed leaps, maybe a bag trap. Archer’s Monologue: \"Watching Jax bumble through my brilliant plan will be its own entertainment. May the feathers fly.\"",
+      "text": "You outline a cunning ambush strategy—stealthy vantage points, well-timed leaps, maybe a bag trap. \"Watching Jax bumble through my brilliant plan will be its own entertainment. May the feathers fly.\"",
       "choices": {
         "Let Jax practice in the shadows": "fence_hub"
       },
@@ -42,7 +42,7 @@
     },
   
     "jax_help": {
-      "text": "Jax’s eyes gleam. \"So you want me to crawl under here with you? I could use a new vantage for my bird studies.\" Archer’s Monologue: \"Sidekick? Hmm. Still, Jax might amuse me—for a moment.\"",
+      "text": "Jax’s eyes gleam. \"So you want me to crawl under here with you? I could use a new vantage for my bird studies.\" \"Sidekick? Hmm. Still, Jax might amuse me—for a moment.\"",
       "choices": {
         "Team up to crawl under the fence": "under_fence",
         "Wave Jax away and proceed alone": "fence_hub"
@@ -64,7 +64,7 @@
     },
   
     "mysterious_purring": {
-      "text": "A low rumble rises from behind a mossy stump. Drayko, the self-proclaimed Prince, emerges with regal poise. \"Ah, guests under my moonlit dominion. Here to pay homage?\" Archer’s Monologue: \"Another cat steeped in grandeur. This should be delightfully absurd.\"",
+      "text": "A low rumble rises from behind a mossy stump. Drayko, the self-proclaimed Prince, emerges with regal poise. \"Ah, guests under my moonlit dominion. Here to pay homage?\" \"Another cat steeped in grandeur. This should be delightfully absurd.\"",
       "choices": {
         "Trade courtly banter with Drayko": "drayko_banter",
         "Politely yield to his territory": "yield_territory",
@@ -73,7 +73,7 @@
     },
   
     "drayko_banter": {
-      "text": "Drayko flicks his tail in an almost choreographed flourish. \"Prince Drayko Pawl O’Sullivan, at your service—unstoppable by nature.\" Archer’s Monologue: \"He thinks me ‘amusing’? We’ll see who amuses whom.\" The two of you spar verbally, neither conceding an inch of pride.",
+      "text": "Drayko flicks his tail in an almost choreographed flourish. \"Prince Drayko Pawl O’Sullivan, at your service—unstoppable by nature.\" \"He thinks me ‘amusing’? We’ll see who amuses whom.\" The two of you spar verbally, neither conceding an inch of pride.",
       "choices": {
         "Accept Drayko as an ally": "drayko_ally",
         "Challenge Drayko to a friendly face-off": "drayko_challenge",
@@ -85,14 +85,14 @@
     },
   
     "yield_territory": {
-      "text": "Archer’s Monologue: \"No need for a full confrontation tonight. Let him have his illusions of supremacy for now.\" Drayko gives a skeptical snort. \"Stay if you must, but don’t overstep.\"",
+      "text": "\"No need for a full confrontation tonight. Let him have his illusions of supremacy for now.\" Drayko gives a skeptical snort. \"Stay if you must, but don’t overstep.\"",
       "choices": {
         "Return to the fence": "fence_hub"
       }
     },
   
     "drayko_ally": {
-      "text": "Drayko inclines his head. \"An alliance. Perhaps we’ll forge stories that echo through the Homestead?\" Archer’s Monologue: \"Flattery meets opportunity. I enjoy both. Let’s see if Drayko can keep up.\"",
+      "text": "Drayko inclines his head. \"An alliance. Perhaps we’ll forge stories that echo through the Homestead?\" \"Flattery meets opportunity. I enjoy both. Let’s see if Drayko can keep up.\"",
       "choices": {
         "Plot adventures with Drayko": "plot_adventure",
         "Conclude and return to fence path": "fence_hub"
@@ -104,7 +104,7 @@
     },
   
     "drayko_challenge": {
-      "text": "The tension crackles. You and Drayko puff up, tails lashing. Archer’s Monologue: \"A bit of theatrical rivalry never hurt. Let him think he’s my equal for now.\" Eventually, you both grin, tension dissolving. \"We’ll clash again,\" Drayko promises.",
+      "text": "The tension crackles. You and Drayko puff up, tails lashing. \"A bit of theatrical rivalry never hurt. Let him think he’s my equal for now.\" Eventually, you both grin, tension dissolving. \"We’ll clash again,\" Drayko promises.",
       "choices": {
         "Agree to meet again for an epic stand-off": "plot_adventure",
         "Walk away, quietly satisfied": "fence_hub"
@@ -115,7 +115,7 @@
     },
   
     "plot_adventure": {
-      "text": "Drayko’s eyes flare with excitement. \"I’ve heard whispers of ancient artifacts beyond the creek. Claim them first, and the Homestead will speak our names in awe.\" Archer’s Monologue: \"Yes, relics, glory, and whispered tales—this cat knows how to pique my interest.\"",
+      "text": "Drayko’s eyes flare with excitement. \"I’ve heard whispers of ancient artifacts beyond the creek. Claim them first, and the Homestead will speak our names in awe.\" \"Yes, relics, glory, and whispered tales—this cat knows how to pique my interest.\"",
       "choices": {
         "Agree to investigate the creek together": "creek.json",
         "Return to the fence for now": "fence_hub"
@@ -126,7 +126,7 @@
     },
   
     "climb_fence": {
-      "text": "Archer’s Monologue: \"Scaling to survey my domain—this is a performance worthy of my skill.\" The wood groans beneath your paws, but you mount the fence gracefully. There, perched in the moonlight, is Minx the Lynx. She purrs, \"Isn’t the night divine, darling? Ready for a little escapade?\"",
+      "text": "\"Scaling to survey my domain—this is a performance worthy of my skill.\" The wood groans beneath your paws, but you mount the fence gracefully. There, perched in the moonlight, is Minx the Lynx. She purrs, \"Isn’t the night divine, darling? Ready for a little escapade?\"",
       "choices": {
         "Converse with Minx about city-cat secrets": "minx_city",
         "Continue climbing alone": "top_fence",
@@ -135,7 +135,7 @@
     },
   
     "minx_city": {
-      "text": "Minx flicks her whiskers with flair. \"In the city, lights glimmer like fallen stars. Sparkle-balls, rooftop dances… You’d adore it, Archer.\" Archer’s Monologue: \"Urban glamor? Tempting, though my loyal subjects here would miss me… or fail to exist without me.\"",
+      "text": "Minx flicks her whiskers with flair. \"In the city, lights glimmer like fallen stars. Sparkle-balls, rooftop dances… You’d adore it, Archer.\" \"Urban glamor? Tempting, though my loyal subjects here would miss me… or fail to exist without me.\"",
       "choices": {
         "Show interest in city escapades": "city_escape",
         "Politely decline, focusing on the Homestead": "fence_hub"
@@ -146,7 +146,7 @@
     },
   
     "city_escape": {
-      "text": "Minx laughs with a mischievous sparkle. \"Should you grow weary of homestead drama, find me. We’ll chase strobe-lit reflections and lounge in penthouse pillows.\" Archer’s Monologue: \"I do appreciate a good vantage—though the Homestead has its charms too.\"",
+      "text": "Minx laughs with a mischievous sparkle. \"Should you grow weary of homestead drama, find me. We’ll chase strobe-lit reflections and lounge in penthouse pillows.\" \"I do appreciate a good vantage—though the Homestead has its charms too.\"",
       "choices": {
         "Return to the fence route": "fence_hub",
         "Propose a future rendezvous": "fence_hub"
@@ -170,7 +170,7 @@
     },
   
     "henry_exchange": {
-      "text": "Henry dips his head respectfully. \"We keep Hedgewatch vigilant. I may not be a magical familiar, but I stand guard for all.\" Archer’s Monologue: \"Admirable stoicism. One wonders if he ever tires of perpetual watchfulness—and if so, whether he’d admit it.\"",
+      "text": "Henry dips his head respectfully. \"We keep Hedgewatch vigilant. I may not be a magical familiar, but I stand guard for all.\" \"Admirable stoicism. One wonders if he ever tires of perpetual watchfulness—and if so, whether he’d admit it.\"",
       "choices": {
         "Pledge cooperation with Hedgewatch Hedgequarters": "pledge_hedgewatch",
         "Offer a cursory salute and depart": "fence_hub"
@@ -189,7 +189,7 @@
     },
   
     "secret_perch": {
-      "text": "Eying a sturdy crossbeam, Archer leaps to a hidden perch along the fence’s top. From here, the Homestead sprawls like a painting. A faint glimmer catches his eye—tucked in a knot of wood is a dark, silken fabric. Archer’s Monologue: \"Now that’s interesting…\"",
+      "text": "Eying a sturdy crossbeam, Archer leaps to a hidden perch along the fence’s top. From here, the Homestead sprawls like a painting. A faint glimmer catches his eye—tucked in a knot of wood is a dark, silken fabric. \"Now that’s interesting…\"",
       "choices": {
         "Inspect the fabric": "inspect_fabric",
         "Ignore it and jump down": "fence_hub"
@@ -197,7 +197,7 @@
     },
   
     "inspect_fabric": {
-      "text": "Archer carefully extracts the cloth. It’s a **Midnight Cloak**, woven with threads that shimmer under moonlight. A faint insignia—a feline silhouette—adorns the hem. Archer’s Monologue: \"A cloak befitting my majestic presence. Some human or cat tailor must’ve hidden it here. It practically resonates with my aura.\"",
+      "text": "Archer carefully extracts the cloth. It’s a **Midnight Cloak**, woven with threads that shimmer under moonlight. A faint insignia—a feline silhouette—adorns the hem. \"A cloak befitting my majestic presence. Some human or cat tailor must’ve hidden it here. It practically resonates with my aura.\"",
       "choices": {
         "Claim the Midnight Cloak": "cloak_claimed",
         "Leave it behind": "fence_hub"
@@ -205,7 +205,7 @@
     },
   
     "cloak_claimed": {
-      "text": "Archer drapes the cloak around his shoulders, the fabric so light it feels like a whisper of shadow. Archer’s Monologue: \"Perfect. The Homestead will gasp at my refined mystique. Perhaps it even holds a deeper magic—enough to warrant a special commemorative… download, let’s say.\"",
+      "text": "Archer drapes the cloak around his shoulders, the fabric so light it feels like a whisper of shadow. \"Perfect. The Homestead will gasp at my refined mystique. Perhaps it even holds a deeper magic—enough to warrant a special commemorative… download, let’s say.\"",
       "choices": {
         "Trigger Cloak Certificate": "cloak_download",
         "Return to the fence path": "fence_hub"
@@ -217,14 +217,14 @@
     },
   
     "cloak_download": {
-      "text": "A subtle surge of energy glides through Archer’s fur, as if the Cloak itself bestows a quiet blessing. Archer’s Monologue: \"This might be worth more than just fashion. The code of magic or technology might grant me a unique token—like a digital signature of my supremacy.\"",
+      "text": "A subtle surge of energy glides through Archer’s fur, as if the Cloak itself bestows a quiet blessing. \"This might be worth more than just fashion. The code of magic or technology might grant me a unique token—like a digital signature of my supremacy.\"",
       "choices": {
         "Download your Cloak Certificate": "fence_hub"
       }
     },
   
     "hedge_contact": {
-      "text": "Archer’s Monologue: \"Sometimes, a cat of my rank calls upon allies—though in truth, it’s they who benefit from my presence.\" Your commanding yowl resonates. Soon, a small Hedgewatch patrol emerges, eyes shining in readiness.",
+      "text": "\"Sometimes, a cat of my rank calls upon allies—though in truth, it’s they who benefit from my presence.\" Your commanding yowl resonates. Soon, a small Hedgewatch patrol emerges, eyes shining in readiness.",
       "choices": {
         "Confer about local hazards": "hedge_report",
         "Downplay the fuss and remain solo": "fence_hub"
@@ -232,7 +232,7 @@
     },
   
     "hedge_report": {
-      "text": "A calico officer salutes. \"Archer, your nocturnal exploits are famous. We’ve heard suspicious chatter near the creek—some infiltration or prank. Hedgewatch stands by if you want backup.\" Archer’s Monologue: \"They rely on me to solve their mysteries… how delightful for my ego.\"",
+      "text": "A calico officer salutes. \"Archer, your nocturnal exploits are famous. We’ve heard suspicious chatter near the creek—some infiltration or prank. Hedgewatch stands by if you want backup.\" \"They rely on me to solve their mysteries… how delightful for my ego.\"",
       "choices": {
         "Thank Hedgewatch and investigate the creek": "creek.json",
         "Stay on the fence path alone": "fence_hub"
@@ -243,7 +243,7 @@
     },
   
     "fence_hub": {
-      "text": "Reorienting at the old fence, Archer surveys moonlit fields stretching outward. Archer’s Monologue: \"A boundary for some, a grand catwalk for me—between worlds, between secrets, between conquests. Now, which conquest do I favor next?\"",
+      "text": "Reorienting at the old fence, Archer surveys moonlit fields stretching outward. \"A boundary for some, a grand catwalk for me—between worlds, between secrets, between conquests. Now, which conquest do I favor next?\"",
       "choices": {
         "Investigate the gap again": "investigate_gap",
         "Climb the fence": "climb_fence",

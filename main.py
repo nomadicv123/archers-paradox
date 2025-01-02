@@ -2,7 +2,7 @@ import streamlit as st
 import json
 import os
 from io import BytesIO
-# from reportlab.pdfgen import canvas
+from reportlab.pdfgen import canvas  # Uncomment if using PDF generation
 
 # Placeholder dictionary for node-based Archerisms (feel free to expand!)
 archerisms_per_scene = {
@@ -48,8 +48,7 @@ def set_current_story(file_name: str):
     st.session_state.current_file = file_name
     st.session_state.story_data = load_json_file(file_name)
     st.session_state.current_node = "root"
-    # Optionally reset visited_nodes if switching to a totally new story
-    # st.session_state.visited_nodes.clear()
+    st.session_state.visited_nodes.clear()
 
 # ----------------------------------------------
 # Helper for "Share This Moment" PDF
@@ -240,6 +239,26 @@ def can_access_node(story_data: dict, node_key: str) -> bool:
     return True
 
 # ----------------------------------------------
+# Integrate Expansion Packs
+# ----------------------------------------------
+def integrate_expansion(expansion_data: dict):
+    """
+    Integrates an expansion JSON into the current story data.
+    """
+    nodes = expansion_data.get("nodes", {})
+    unlockables = expansion_data.get("unlockables", {})
+    
+    # Add new nodes to the story data
+    for key, value in nodes.items():
+        st.session_state.story_data[key] = value
+    
+    # Unlock choices in existing nodes
+    for node_key, choices in unlockables.items():
+        if node_key in st.session_state.story_data:
+            for choice_label, choice_value in choices.items():
+                st.session_state.story_data[node_key]["choices"][choice_label] = choice_value
+
+# ----------------------------------------------
 # Apply rewards or consequences
 # ----------------------------------------------
 def apply_rewards_and_consequences(node_data: dict):
@@ -315,7 +334,7 @@ def main():
         st.session_state.visited_nodes = set()
 
     # ------------------------------
-    # Sidebar with Logo
+    # Sidebar with Logo and Stats
     # ------------------------------
     with st.sidebar:
         st.image(
@@ -332,7 +351,7 @@ def main():
         else:
             st.write("**Inventory:** (empty)")
 
-        # Collapsible box for Save/Load
+        # Collapsible box for Save/Load Progress
         with st.expander("Save / Load Progress", expanded=False):
             # Load
             upload_file = st.file_uploader("Load a previously saved JSON", type=["json"])
@@ -367,20 +386,40 @@ def main():
                 )
 
         # ---- "Share This Moment" (PDF) ----
-        #if st.button("Share This Moment"):
-        #    node_data = get_node_data(st.session_state.story_data, st.session_state.current_node)
-        #    pdf_buffer = generate_pdf(
-        #        st.session_state.points,
-        #        st.session_state.inventory,
-        #        st.session_state.current_node,
-        #        node_data
-        #    )
-        #    st.download_button(
-        #        label="Download Archer’s Reflection (PDF)",
-        #       data=pdf_buffer,
-        #        file_name="Archer_Paradox_Reflection.pdf",
-        #       mime="application/pdf"
-        #    )
+        # Uncomment if you want to enable PDF sharing
+        # if st.button("Share This Moment"):
+        #     node_data = get_node_data(st.session_state.story_data, st.session_state.current_node)
+        #     pdf_buffer = generate_pdf(
+        #         st.session_state.points,
+        #         st.session_state.inventory,
+        #         st.session_state.current_node,
+        #         node_data
+        #     )
+        #     st.download_button(
+        #         label="Download Archer’s Reflection (PDF)",
+        #         data=pdf_buffer,
+        #         file_name="Archer_Paradox_Reflection.pdf",
+        #         mime="application/pdf"
+        #     )
+
+        # ---- Load Expansion Pack ----
+        with st.expander("Load Expansion Pack", expanded=False):
+            uploaded_expansion = st.file_uploader("Upload Expansion JSON", type=["json"])
+            if uploaded_expansion is not None:
+                try:
+                    # Save the uploaded file to the story_data folder
+                    expansion_filename = uploaded_expansion.name
+                    expansion_filepath = os.path.join("story_data", expansion_filename)
+                    with open(expansion_filepath, "wb") as f:
+                        f.write(uploaded_expansion.getbuffer())
+
+                    # Load the expansion JSON and integrate it into session state
+                    expansion_data = load_json_file(expansion_filename)
+                    integrate_expansion(expansion_data)  # Add new branches or nodes
+                    st.success(f"Expansion pack '{expansion_filename}' loaded successfully!")
+                    st.rerun()
+                except Exception as e:
+                    st.error(f"Failed to load expansion pack: {e}")
 
     # 2) Retrieve the current node data
     node_data = get_node_data(st.session_state.story_data, st.session_state.current_node)
@@ -406,24 +445,38 @@ def main():
         apply_rewards_and_consequences(node_data)
         st.session_state.visited_nodes.add(st.session_state.current_node)
 
-    # 5) Display choices as buttons (with item gating)
+    # 5) Display choices as buttons (with item gating and expansion pack support)
     choices = node_data.get("choices", {})
     if choices:
         st.subheader("Choices:")
         for choice_label, choice_value in choices.items():
-            if choice_value.endswith(".json"):
-                # Directly load a new JSON file
-                if st.button(choice_label):
-                    set_current_story(choice_value)
-                    st.rerun()
-            else:
-                # Node within the same JSON
-                if can_access_node(st.session_state.story_data, choice_value):
+            if isinstance(choice_value, str):  # Normal unlocked choice
+                if choice_value.endswith(".json"):
+                    # Load a new JSON file
                     if st.button(choice_label):
-                        st.session_state.current_node = choice_value
+                        set_current_story(choice_value)
                         st.rerun()
                 else:
+                    if can_access_node(st.session_state.story_data, choice_value):
+                        if st.button(choice_label):
+                            st.session_state.current_node = choice_value
+                            st.rerun()
+                    else:
+                        st.button(f"{choice_label} (Locked)", disabled=True)
+            elif isinstance(choice_value, dict):  # Locked expansion pack choice
+                tease_message = choice_value.get("tease", "This path requires an expansion pack.")
+                unlock_key = choice_value.get("unlock_key")
+                # Check if the unlock_key is loaded (i.e., its node exists in story_data)
+                if unlock_key and unlock_key in st.session_state.story_data:
+                    # Extract the node key by removing the .json extension
+                    node_key = os.path.splitext(unlock_key)[0]
+                    if st.button(choice_label):
+                        st.session_state.current_node = node_key
+                        st.rerun()
+                else:
+                    # Display as locked with tease message
                     st.button(f"{choice_label} (Locked)", disabled=True)
+                    st.markdown(f"*{tease_message}*")
 
 if __name__ == "__main__":
     main()
