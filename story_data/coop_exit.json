@@ -1,14 +1,15 @@
 {
-    "text": "Archer’s Monologue: \"The coop behind me still simmers with half-kept secrets and clucking hysteria, but the night beyond calls louder. The scent of moonlit gardens, distant fences, vigilant hedges, and rushing creeks all beckon me like unsolved riddles. Shall I chase wonder or let it chase me? Either way, I win.\"",
-    "choices": {
-      "Head to the Garden": "garden.json",
-      "Climb the Fence to explore further": "fence.json",
-      "Investigate Hedgewatch HQ": "hedgewatch.json",
-      "Venture down by the Creek": "creek.json",
-      "Return to Intro (if you wish)": "intro.json"
-    },
-    "rewards": {
-      "points": 5
+    "start": {
+        "text": "\"The coop behind me still simmers with half-kept secrets and clucking hysteria, but the night beyond calls louder. The scent of moonlit gardens, distant fences, vigilant hedges, and rushing creeks all beckon me like unsolved riddles. Shall I chase wonder or let it chase me? Either way, I win.\"",
+        "choices": {
+            "Head to the Garden": "garden.json",
+            "Climb the Fence to explore further": "fence.json",
+            "Investigate Hedgewatch HQ": "hedgewatch.json",
+            "Venture down by the Creek": "creek.json",
+            "Return to Intro (if you wish)": "intro.json"
+        },
+        "rewards": {
+            "points": 5
+        }
     }
-  }
-  
+}

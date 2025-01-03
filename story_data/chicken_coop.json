@@ -1,235 +1,230 @@
 {
-    "text": "\"The coop resonates like a living heartbeat tonight, straw and feathers stirring the air with secrets. Soft clucks reverberate in the dim light, and my ears swivel at the faint glimmer of something hidden under a nest. Is curiosity leading me astray, or is caution just a roadblock to glory? Let’s find out.\"",
-    "choices": {
-      "Check for shiny objects": "shiny_objects",
-      "Leave the chickens alone": "coop_exit"
+    "start": {
+        "text": "\"The coop resonates like a living heartbeat tonight, straw and feathers stirring the air with secrets. Soft clucks reverberate in the dim light, and my ears swivel at the faint glimmer of something hidden under a nest. Is curiosity leading me astray, or is caution just a roadblock to glory? Let’s find out.\"",
+        "image" : "assets/image/coop.png",
+        "choices": {
+            "Check for shiny objects": "shiny_objects",
+            "Leave the chickens alone": "coop_exit"
+        }
     },
-  
     "shiny_objects": {
-      "text": "Archer’s keen eyes catch the gleam of a silver spoon, half-buried in the straw. Another flicker draws him closer—an egg glowing with an eerie, otherworldly light. \"Treasures or traps? My whiskers tingle. Questions swirl like feathers on a midnight breeze.\"",
-      "choices": {
-        "Take the spoon": "spoon_taken",
-        "Inspect the glowing egg": "glowing_egg",
-        "Ignore it all": "ignore_shiny"
-      },
-      "rewards": {
-        "points": 5
-      }
+        "text": "Archer’s keen eyes catch the gleam of a silver spoon, half-buried in the straw. Another flicker draws him closer—an egg glowing with an eerie, otherworldly light. \"Treasures or traps? My whiskers tingle. Questions swirl like feathers on a midnight breeze.\"",
+        "choices": {
+            "Take the spoon": "spoon_taken",
+            "Inspect the glowing egg": "glowing_egg",
+            "Ignore it all": "ignore_shiny"
+        },
+        "rewards": {
+            "points": 5
+        }
     },
-  
     "spoon_taken": {
-      "text": "With a swift, practiced motion, Archer snatches the spoon. Its ornate surface shimmers even in the coop’s half-light. \"Beautiful, isn’t it? Though beauty often cloaks a deeper puzzle. Still, I enjoy a good puzzle—especially one that’s mine now.\"",
-      "choices": {
-        "Inspect the glowing egg": "glowing_egg",
-        "Leave the coop": "coop_exit"
-      },
-      "rewards": {
-        "points": 10,
-        "items": ["Silver Spoon"]
-      }
+        "text": "With a swift, practiced motion, Archer snatches the spoon. Its ornate surface shimmers even in the coop’s half-light. \"Beautiful, isn’t it? Though beauty often cloaks a deeper puzzle. Still, I enjoy a good puzzle—especially one that’s mine now.\"",
+        "choices": {
+            "Inspect the glowing egg": "glowing_egg",
+            "Leave the coop": "coop_exit"
+        },
+        "rewards": {
+            "points": 10,
+            "items": [
+                "Silver Spoon"
+            ]
+        }
     },
-  
     "ignore_shiny": {
-      "text": "Archer flicks his tail in disinterest, stepping back from the coop’s mysteries. \"Sometimes refusing temptation is its own challenge. The night is vast, and so am I. Let the coop keep its secrets—my curiosity has better places to roam.\"",
-      "choices": {
-        "Explore the garden": "garden.json",
-        "Climb the fence": "fence.json"
-      },
-      "consequences": {
-        "points": -5,
-        "items_lost": []
-      }
+        "text": "Archer flicks his tail in disinterest, stepping back from the coop’s mysteries. \"Sometimes refusing temptation is its own challenge. The night is vast, and so am I. Let the coop keep its secrets—my curiosity has better places to roam.\"",
+        "choices": {
+            "Explore the garden": "garden.json",
+            "Climb the fence": "fence.json"
+        },
+        "consequences": {
+            "points": -5,
+            "items_lost": []
+        }
     },
-  
     "glowing_egg": {
-      "text": "The egg throbs with a gentle radiance, its shell cracking under Archer’s probing paw. A tiny, luminous chick emerges, blinking into the night. \"Life pulsing with a cosmic glow—an omen of something bigger, or just a freakish wonder? Either way, I’m intrigued.\"",
-      "choices": {
-        "Follow the chick": "follow_chick",
-        "Leave the coop immediately": "leave_immediately",
-        "Try to catch the chick": "catch_chick"
-      },
-      "rewards": {
-        "points": 15,
-        "items": ["Glowing Fragment"]
-      }
+        "text": "The egg throbs with a gentle radiance, its shell cracking under Archer’s probing paw. A tiny, luminous chick emerges, blinking into the night. \"Life pulsing with a cosmic glow—an omen of something bigger, or just a freakish wonder? Either way, I’m intrigued.\"",
+        "choices": {
+            "Follow the chick": "follow_chick",
+            "Leave the coop immediately": "leave_immediately",
+            "Try to catch the chick": "catch_chick"
+        },
+        "rewards": {
+            "points": 15,
+            "items": [
+                "Glowing Fragment"
+            ]
+        }
     },
-  
     "leave_immediately": {
-      "text": "Archer decides not to tangle with cosmic eggs this evening, slipping out of the coop without a backward glance. \"Mysteries remain, but so does my desire for an untroubled night. Perhaps I’ll regret walking away—or perhaps not.\"",
-      "choices": {
-        "Head back to the homestead": "coop_exit",
-        "Try the garden instead": "garden.json"
-      }
+        "text": "Archer decides not to tangle with cosmic eggs this evening, slipping out of the coop without a backward glance. \"Mysteries remain, but so does my desire for an untroubled night. Perhaps I’ll regret walking away—or perhaps not.\"",
+        "choices": {
+            "Head back to the homestead": "coop_exit",
+            "Try the garden instead": "garden.json"
+        }
     },
-  
     "catch_chick": {
-      "text": "Archer lunges, but the glowing chick is faster, vanishing into a moonlit shadow. A strange ache settles in the empty air it leaves behind. \"Some chances slip through our claws by design. Or maybe I was half-hearted? Hmm… either way, the coop’s mysteries feel heavier now.\"",
-      "choices": {
-        "Explore the garden": "garden.json",
-        "Climb the fence": "fence.json"
-      },
-      "consequences": {
-        "points": -10,
-        "items_lost": ["Silver Spoon"]
-      }
+        "text": "Archer lunges, but the glowing chick is faster, vanishing into a moonlit shadow. A strange ache settles in the empty air it leaves behind. \"Some chances slip through our claws by design. Or maybe I was half-hearted? Hmm… either way, the coop’s mysteries feel heavier now.\"",
+        "choices": {
+            "Explore the garden": "garden.json",
+            "Climb the fence": "fence.json"
+        },
+        "consequences": {
+            "points": -10,
+            "items_lost": [
+                "Silver Spoon"
+            ]
+        }
     },
-  
     "follow_chick": {
-      "text": "Archer trails the chick into the woods, its radiant fluff guiding him like a living lantern. Symbols carved into ancient bark glow faintly in response, each step tingling with possibility. \"A chick leading me into runic shadows—absurd, yet delightful. My fur prickles in anticipation.\"",
-      "choices": {
-        "Examine the pedestal": "examine_pedestal",
-        "Stay back and observe": "observe_chick",
-        "Leave the area": "retreat_woods"
-      },
-      "rewards": {
-        "points": 20,
-        "items": []
-      }
+        "text": "Archer trails the chick into the woods, its radiant fluff guiding him like a living lantern. Symbols carved into ancient bark glow faintly in response, each step tingling with possibility. \"A chick leading me into runic shadows—absurd, yet delightful. My fur prickles in anticipation.\"",
+        "choices": {
+            "Examine the pedestal": "examine_pedestal",
+            "Stay back and observe": "observe_chick",
+            "Leave the area": "retreat_woods"
+        },
+        "rewards": {
+            "points": 20,
+            "items": []
+        }
     },
-  
     "observe_chick": {
-      "text": "Archer hides beneath a fern, watching the chick circle atop a weathered stone pedestal. Each chirp brightens the carved runes glowing around it. \"These woods breathe with ancient secrets. The chick? Just a catalyst, or the star of this show? My instincts say watch closely—then decide.\"",
-      "choices": {
-        "Approach the pedestal": "examine_pedestal",
-        "Retreat into the shadows": "retreat_woods"
-      },
-      "rewards": {
-        "points": 5,
-        "items": []
-      }
+        "text": "Archer hides beneath a fern, watching the chick circle atop a weathered stone pedestal. Each chirp brightens the carved runes glowing around it. \"These woods breathe with ancient secrets. The chick? Just a catalyst, or the star of this show? My instincts say watch closely—then decide.\"",
+        "choices": {
+            "Approach the pedestal": "examine_pedestal",
+            "Retreat into the shadows": "retreat_woods"
+        },
+        "rewards": {
+            "points": 5,
+            "items": []
+        }
     },
-  
     "examine_pedestal": {
-      "text": "Archer steps nearer, eyes tracing runes that rearrange like constellations at his approach. A low hum resonates in his chest. \"The land speaks in symbols older than memory. It sees me as I see it—two enigmas meeting halfway.\"",
-      "choices": {
-        "Touch the symbols": "touch_symbols",
-        "Step away": "step_away"
-      },
-      "rewards": {
-        "points": 10,
-        "items": ["Ancient Inscription"]
-      }
+        "text": "Archer steps nearer, eyes tracing runes that rearrange like constellations at his approach. A low hum resonates in his chest. \"The land speaks in symbols older than memory. It sees me as I see it—two enigmas meeting halfway.\"",
+        "choices": {
+            "Touch the symbols": "touch_symbols",
+            "Step away": "step_away"
+        },
+        "rewards": {
+            "points": 10,
+            "items": [
+                "Ancient Inscription"
+            ]
+        }
     },
-  
     "step_away": {
-      "text": "A flicker of caution stills Archer’s paw. The pedestal glimmers, almost disappointed. \"Even I must sometimes heed a warning. These secrets won’t vanish. The forest hums with potential, but so do I. Another time, perhaps.\"",
-      "choices": {
-        "Return to the coop": "coop_exit",
-        "Continue deeper into the woods": "retreat_woods"
-      }
+        "text": "A flicker of caution stills Archer’s paw. The pedestal glimmers, almost disappointed. \"Even I must sometimes heed a warning. These secrets won’t vanish. The forest hums with potential, but so do I. Another time, perhaps.\"",
+        "choices": {
+            "Return to the coop": "coop_exit",
+            "Continue deeper into the woods": "retreat_woods"
+        }
     },
-  
     "touch_symbols": {
-      "text": "Archer brushes the glowing runes with a deliberate paw. A flood of visions cascade through his mind: the Homestead’s storied past and glimpses of uncertain futures. \"Power reverberates through me, binding me to this land. Am I more than I was, or simply more aware?\"",
-      "choices": {
-        "Return to the coop": "coop_exit",
-        "Explore further": "garden.json"
-      },
-      "rewards": {
-        "points": 25,
-        "items": ["Vision Shard"]
-      }
+        "text": "Archer brushes the glowing runes with a deliberate paw. A flood of visions cascade through his mind: the Homestead’s storied past and glimpses of uncertain futures. \"Power reverberates through me, binding me to this land. Am I more than I was, or simply more aware?\"",
+        "choices": {
+            "Return to the coop": "coop_exit",
+            "Explore further": "garden.json"
+        },
+        "rewards": {
+            "points": 25,
+            "items": [
+                "Vision Shard"
+            ]
+        }
     },
-  
     "retreat_woods": {
-      "text": "The forest exhales as Archer withdraws, the symbols and the mysterious chick fading into darkness. Relief and regret tangle in his chest. \"One step back preserves my sense of self—yet curiosity bites. Who knows what I left unclaimed in those shadows?\"",
-      "choices": {
-        "Step through the gateway": "mystic_gateway",
-        "Turn back toward the homestead": "coop_exit"
-      },
-      "consequences": {
-        "points": -5,
-        "items_lost": []
-      }
+        "text": "The forest exhales as Archer withdraws, the symbols and the mysterious chick fading into darkness. Relief and regret tangle in his chest. \"One step back preserves my sense of self—yet curiosity bites. Who knows what I left unclaimed in those shadows?\"",
+        "choices": {
+            "Step through the gateway": "mystic_gateway",
+            "Turn back toward the homestead": "coop_exit"
+        },
+        "consequences": {
+            "points": -5,
+            "items_lost": []
+        }
     },
-  
     "mystic_gateway": {
-      "text": "Archer steps beneath an arch of shimmering runes, reality shifting into crystalline pathways threaded with musical whispers. A figure of living light beckons. \"Seeker, you stand at the confluence of knowledge and courage. Choose well.\" \"Ah, a cosmic challenge. My favorite kind.\"",
-      "choices": {
-        "Accept a new challenge": "light_challenge",
-        "Return to the homestead": "coop_exit"
-      },
-      "rewards": {
-        "points": 30,
-        "items": ["Crystal Key"]
-      }
+        "text": "Archer steps beneath an arch of shimmering runes, reality shifting into crystalline pathways threaded with musical whispers. A figure of living light beckons. \"Seeker, you stand at the confluence of knowledge and courage. Choose well.\" \"Ah, a cosmic challenge. My favorite kind.\"",
+        "choices": {
+            "Accept a new challenge": "light_challenge",
+            "Return to the homestead": "coop_exit"
+        },
+        "rewards": {
+            "points": 30,
+            "items": [
+                "Crystal Key"
+            ]
+        }
     },
-  
     "light_challenge": {
-      "text": "The luminous being unveils a puzzle etched into the radiant floor, each step demanding Archer interpret runes once seen on the pedestal. \"A labyrinth of symbols and sound—my curiosity purrs at the thought. Let’s see how far brilliance can carry me.\"",
-      "choices": {
-        "Open the chest": "open_chest",
-        "Step away": "retreat_woods"
-      },
-      "rewards": {
-        "points": 50,
-        "items": []
-      }
+        "text": "The luminous being unveils a puzzle etched into the radiant floor, each step demanding Archer interpret runes once seen on the pedestal. \"A labyrinth of symbols and sound—my curiosity purrs at the thought. Let’s see how far brilliance can carry me.\"",
+        "choices": {
+            "Open the chest": "open_chest",
+            "Step away": "retreat_woods"
+        },
+        "rewards": {
+            "points": 50,
+            "items": []
+        }
     },
-  
     "open_chest": {
-      "text": "A careful nudge opens the chest. Inside rests a faintly glowing amulet, pulsing like a second heartbeat. \"So, I’m 'worthy.' Isn’t that grand? The rush of warmth suggests deeper truths. Or maybe just cosmic flattery. Either way, it’s mine now.\"",
-      "choices": {
-        "Return to the homestead": "mystic_amulet"
-      },
-      "rewards": {
-        "points": 100,
-        "items": ["Mystic Amulet"]
-      }
+        "text": "A careful nudge opens the chest. Inside rests a faintly glowing amulet, pulsing like a second heartbeat. \"So, I’m 'worthy.' Isn’t that grand? The rush of warmth suggests deeper truths. Or maybe just cosmic flattery. Either way, it’s mine now.\"",
+        "choices": {
+            "Return to the homestead": "mystic_amulet"
+        },
+        "rewards": {
+            "points": 100,
+            "items": [
+                "Mystic Amulet"
+            ]
+        }
     },
-  
     "mystic_amulet": {
-      "text": "The amulet around Archer’s neck glows softly, stirring echoes of ancient symbols on every surface. The figure of light speaks: \"You carry within you both wisdom and audacity. This amulet shall guide you to hidden truths across the Homestead. Will you keep seeking, or return to savor what you have?\"",
-      "choices": {
-        "Seek further mysteries": "hidden_path",
-        "Return to the homestead": "coop_exit"
-      },
-      "rewards": {
-        "points": 20,
-        "items": []
-      }
+        "text": "The amulet around Archer’s neck glows softly, stirring echoes of ancient symbols on every surface. The figure of light speaks: \"You carry within you both wisdom and audacity. This amulet shall guide you to hidden truths across the Homestead. Will you keep seeking, or return to savor what you have?\"",
+        "choices": {
+            "Seek further mysteries": "hidden_path",
+            "Return to the homestead": "coop_exit"
+        },
+        "rewards": {
+            "points": 20,
+            "items": []
+        }
     },
-  
     "hidden_path": {
-      "text": "The amulet’s glow reveals a secret door in the air itself. Beyond lies a corridor etched with shifting runes. \"Even the Homestead can hide entire worlds, it seems. My whiskers vibrate with the promise of new revelations—time to investigate.\"",
-      "choices": {
-        "Examine the map": "map_discovery",
-        "Step away from the door": "coop_exit"
-      }
+        "text": "The amulet’s glow reveals a secret door in the air itself. Beyond lies a corridor etched with shifting runes. \"Even the Homestead can hide entire worlds, it seems. My whiskers vibrate with the promise of new revelations—time to investigate.\"",
+        "choices": {
+            "Examine the map": "map_discovery",
+            "Step away from the door": "coop_exit"
+        }
     },
-  
     "map_discovery": {
-      "text": "Symbols swirl across a stone floor map, forming half-legible words. The Silver Spoon hums softly, and Archer places it on the map. A route labeled 'The Forgotten Garden' flares with light. \"Ah, an invitation to another secret. Exactly what I crave.\"",
-      "choices": {
-        "Follow the map to the garden": "forgotten_garden"
-      }
+        "text": "Symbols swirl across a stone floor map, forming half-legible words. The Silver Spoon hums softly, and Archer places it on the map. A route labeled 'The Forgotten Garden' flares with light. \"Ah, an invitation to another secret. Exactly what I crave.\"",
+        "choices": {
+            "Follow the map to the garden": "forgotten_garden"
+        }
     },
-  
     "forgotten_garden": {
-      "text": "Guided by arcane lines, Archer steps into the Forgotten Garden—a place brimming with luminous vines, humming blossoms, and a hush of ancient magic. \"The next chapter unfolds, teeming with possibilities. I almost pity those who lack the will to tread such paths.\"",
-      "choices": {
-        "Begin the Garden Exploration": "garden_path"
-      }
+        "text": "Guided by arcane lines, Archer steps into the Forgotten Garden—a place brimming with luminous vines, humming blossoms, and a hush of ancient magic. \"The next chapter unfolds, teeming with possibilities. I almost pity those who lack the will to tread such paths.\"",
+        "choices": {
+            "Begin the Garden Exploration": "garden_path"
+        }
     },
-  
     "garden_path": {
-      "text": "Vines form archways overhead, pulsing with an inner glow. Archer moves forward, each pawstep slow and sure amid the blooming shadows. \"A new realm to shape with my presence… or to shape me? Let’s see which of us yields first.\"",
-      "choices": {
-        "Return to the coop": "intro.json"
-      }
+        "text": "Vines form archways overhead, pulsing with an inner glow. Archer moves forward, each pawstep slow and sure amid the blooming shadows. \"A new realm to shape with my presence… or to shape me? Let’s see which of us yields first.\"",
+        "choices": {
+            "Return to the coop": "intro.json"
+        }
     },
-  
     "coop_exit": {
-      "text": "Archer slips out of the coop, tail swishing in satisfaction. The chickens quiet down, and moonlit pathways stretch before him, humming with the promise of night. \"I leave this den of clucks behind, but the realm beyond is no less full of riddles. Shall I solve them or let them remain mysteries for my amusement?\"",
-      "image": "https://via.placeholder.com/600x300",
-      "choices": {
-        "Head back to the garden.": "garden.json",
-        "Climb the fence to explore the woods.": "fence.json",
-        "Investigate the whispers from Hedgewatch.": "hedgewatch.json"
-      },
-      "rewards": {
-        "points": 10
-      }
+        "text": "Archer slips out of the coop, tail swishing in satisfaction. The chickens quiet down, and moonlit pathways stretch before him, humming with the promise of night. \"I leave this den of clucks behind, but the realm beyond is no less full of riddles. Shall I solve them or let them remain mysteries for my amusement?\"",
+        "image": "assets/image/coop_exit.png",
+        "choices": {
+            "Head to the garden.": "garden.json",
+            "Climb the fence to explore the woods.": "fence.json",
+            "Investigate the whispers from Hedgewatch.": "hedgewatch.json"
+        },
+        "rewards": {
+            "points": 10
+        }
     }
-  }
-  
+}

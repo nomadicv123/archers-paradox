@@ -1,379 +1,350 @@
 {
-    "text": "\"The Garden stretches before me like a dream made of dew and moonbeams. If magic exists, it surely gathers here—swirling among the petals, whispering on the breeze. But which path will reveal the best secrets, and which will merely amuse me? Let’s find out.\"",
-    "choices": {
-      "Pause to admire the moonlit blossoms": "admire_blossoms",
-      "Slink toward the overgrown hedges": "overgrown_hedges",
-      "Investigate the distant glow near the pond": "glow_pond"
+    "start": {
+        "text": "\"The Garden stretches before me like a dream made of dew and moonbeams. If magic exists, it surely gathers here—swirling among the petals, whispering on the breeze. But which path will reveal the best secrets, and which will merely amuse me? Let’s find out.\"",
+        "image" : "assets/image/garden.png",
+        "choices": {
+            "Pause to admire the moonlit blossoms": "admire_blossoms",
+            "Slink toward the overgrown hedges": "overgrown_hedges",
+            "Investigate the distant glow near the pond": "glow_pond"
+        },
+        "rewards": {
+            "points": 5
+        }
     },
-    "rewards": {
-      "points": 5
-    },
-  
     "admire_blossoms": {
-      "text": "\"Yes, yes, I know—I’m magnificent even as I deign to smell the roses. But do they deserve my attention, or must they earn it? We’ll see.\" A breeze ruffles the petals, and Bella’s quiet voice carries on the wind: \"Archer, the garden welcomes seekers of harmony. Don’t let pride blind you to wonders untold.\"",
-      "choices": {
-        "Reflect on Bella’s wisdom": "reflect_bella",
-        "Dismiss Bella’s counsel": "dismiss_bella"
-      }
+        "text": "\"Yes, yes, I know—I’m magnificent even as I deign to smell the roses. But do they deserve my attention, or must they earn it? We’ll see.\" A breeze ruffles the petals, and Bella’s quiet voice carries on the wind: \"Archer, the garden welcomes seekers of harmony. Don’t let pride blind you to wonders untold.\"",
+        "choices": {
+            "Reflect on Bella’s wisdom": "reflect_bella",
+            "Dismiss Bella’s counsel": "dismiss_bella"
+        }
     },
-  
     "reflect_bella": {
-      "text": "Taking a moment, Archer lets Bella’s words sink in. Moonlight kisses each petal in a silver halo, stirring something in his proud heart—just a whisper. Sunshine crows from nearby, \"Humility isn’t a weakness, my friend. It’s solid ground under your paws.\"",
-      "choices": {
-        "Embrace humility (High Noble Path)": "embrace_humility",
-        "Change the subject (Redirect to Overgrown Hedges)": "overgrown_hedges"
-      },
-      "rewards": {
-        "points": 10
-      }
+        "text": "Taking a moment, Archer lets Bella’s words sink in. Moonlight kisses each petal in a silver halo, stirring something in his proud heart—just a whisper. Sunshine crows from nearby, \"Humility isn’t a weakness, my friend. It’s solid ground under your paws.\"",
+        "choices": {
+            "Embrace humility (High Noble Path)": "embrace_humility",
+            "Change the subject (Redirect to Overgrown Hedges)": "overgrown_hedges"
+        },
+        "rewards": {
+            "points": 10
+        }
     },
-  
     "dismiss_bella": {
-      "text": "Archer flicks his tail dismissively. \"Humility? Pfft. My very presence is a gift to these mortals.\" He turns from the blossoms, a rebellious thrill coursing through his whiskers. \"Let them dance for me if they want to be noticed.\" A swirl of moonlit dust teases his nose, threatening a sneeze.",
-      "choices": {
-        "Sneeze and move on (Head to Overgrown Hedges)": "overgrown_hedges",
-        "Spot something rustling behind the rosebush": "rustling_rosebush"
-      },
-      "consequences": {
-        "points": -5
-      }
+        "text": "Archer flicks his tail dismissively. \"Humility? Pfft. My very presence is a gift to these mortals.\" He turns from the blossoms, a rebellious thrill coursing through his whiskers. \"Let them dance for me if they want to be noticed.\" A swirl of moonlit dust teases his nose, threatening a sneeze.",
+        "choices": {
+            "Sneeze and move on (Head to Overgrown Hedges)": "overgrown_hedges",
+            "Spot something rustling behind the rosebush": "rustling_rosebush"
+        },
+        "consequences": {
+            "points": -5
+        }
     },
-  
     "embrace_humility": {
-      "text": "\"Perhaps I can shed a fragment of my unquestionable magnificence—momentarily, of course.\" The garden exhales in gratitude. A soft glow emanates from the ground—a tiny silver amulet, half-buried. Sunshine crows again, \"A token for those who respect the land.\"",
-      "choices": {
-        "Take the amulet graciously": "take_amulet",
-        "Decide it’s not worth the trouble": "ignore_amulet"
-      },
-      "rewards": {
-        "points": 20
-      }
+        "text": "\"Perhaps I can shed a fragment of my unquestionable magnificence—momentarily, of course.\" The garden exhales in gratitude. A soft glow emanates from the ground—a tiny silver amulet, half-buried. Sunshine crows again, \"A token for those who respect the land.\"",
+        "choices": {
+            "Take the amulet graciously": "take_amulet",
+            "Decide it’s not worth the trouble": "ignore_amulet"
+        },
+        "rewards": {
+            "points": 20
+        }
     },
-  
     "ignore_amulet": {
-      "text": "Archer arches a regal brow. \"A fascinating bauble, but I’m not one to be weighed down by trinkets.\" He turns away, yet a pang of regret tugs at him—did he abandon something truly special?",
-      "choices": {
-        "Continue deeper into the garden": "overgrown_hedges",
-        "Look back at the amulet": "take_amulet"
-      }
+        "text": "Archer arches a regal brow. \"A fascinating bauble, but I’m not one to be weighed down by trinkets.\" He turns away, yet a pang of regret tugs at him—did he abandon something truly special?",
+        "choices": {
+            "Continue deeper into the garden": "overgrown_hedges",
+            "Look back at the amulet": "take_amulet"
+        }
     },
-  
     "take_amulet": {
-      "text": "With careful grace, Archer scoops the silver amulet into his paw. It shimmers with an unearthly radiance, sending a pleasant warmth through his leg. \"A gift from the garden itself? I’m as flattered as I am intrigued.\"",
-      "choices": {
-        "Press the amulet to your chest": "press_amulet",
-        "Slip the amulet into your fur and move on": "overgrown_hedges"
-      },
-      "rewards": {
-        "points": 30,
-        "items": ["Silver Amulet of Grace"]
-      }
+        "text": "With careful grace, Archer scoops the silver amulet into his paw. It shimmers with an unearthly radiance, sending a pleasant warmth through his leg. \"A gift from the garden itself? I’m as flattered as I am intrigued.\"",
+        "choices": {
+            "Press the amulet to your chest": "press_amulet",
+            "Slip the amulet into your fur and move on": "overgrown_hedges"
+        },
+        "rewards": {
+            "points": 30,
+            "items": [
+                "Silver Amulet of Grace"
+            ]
+        }
     },
-  
     "press_amulet": {
-      "text": "A deluge of visions floods Archer’s mind—moments of Homestead history, Bella’s vigilant watch, Storm E. Cloud quietly meditating in clover, Sunshine’s dawn crow. The amulet’s glow subsides, humming gently. Bella’s voice echoes: \"Use this gift wisely—it links you to every living thing.\"",
-      "choices": {
-        "Return to the main path": "overgrown_hedges"
-      },
-      "rewards": {
-        "points": 10
-      }
+        "text": "A deluge of visions floods Archer’s mind—moments of Homestead history, Bella’s vigilant watch, Storm E. Cloud quietly meditating in clover, Sunshine’s dawn crow. The amulet’s glow subsides, humming gently. Bella’s voice echoes: \"Use this gift wisely—it links you to every living thing.\"",
+        "choices": {
+            "Return to the main path": "overgrown_hedges"
+        },
+        "rewards": {
+            "points": 10
+        }
     },
-  
     "rustling_rosebush": {
-      "text": "Archer narrows his eyes. \"A sneaky rodent, or perhaps a squirrel?\" He creeps closer, tail swishing. Emerging from behind the rosebush is Storm E. Cloud, the bunny. Storm’s voice is calm: \"Archer, join me in a moment of reflection on this wondrous night, won’t you?\"",
-      "choices": {
-        "Join Storm E. Cloud for a quiet reflection": "join_storm",
-        "Reject the invitation and keep moving": "overgrown_hedges"
-      }
+        "text": "Archer narrows his eyes. \"A sneaky rodent, or perhaps a squirrel?\" He creeps closer, tail swishing. Emerging from behind the rosebush is Storm E. Cloud, the bunny. Storm’s voice is calm: \"Archer, join me in a moment of reflection on this wondrous night, won’t you?\"",
+        "choices": {
+            "Join Storm E. Cloud for a quiet reflection": "join_storm",
+            "Reject the invitation and keep moving": "overgrown_hedges"
+        }
     },
-  
     "join_storm": {
-      "text": "Storm E. Cloud’s soft gaze draws Archer into a pocket of stillness. \"The garden breathes when we breathe,\" the bunny says. \"I’ll humor this Zen routine briefly—something about it resonates, though I hate to admit it.\" Slowly, peace settles in his chest.",
-      "choices": {
-        "Open your heart to Storm’s wisdom": "heart_opening",
-        "Feign indifference and depart": "overgrown_hedges"
-      },
-      "rewards": {
-        "points": 5
-      }
+        "text": "Storm E. Cloud’s soft gaze draws Archer into a pocket of stillness. \"The garden breathes when we breathe,\" the bunny says. \"I’ll humor this Zen routine briefly—something about it resonates, though I hate to admit it.\" Slowly, peace settles in his chest.",
+        "choices": {
+            "Open your heart to Storm’s wisdom": "heart_opening",
+            "Feign indifference and depart": "overgrown_hedges"
+        },
+        "rewards": {
+            "points": 5
+        }
     },
-  
     "heart_opening": {
-      "text": "Archer exhales, letting Storm’s philosophical words drift over him like petals. The hush of leaves, the distant call of an owl… all seem amplified. \"For a moment, I sense we’re woven into the same tapestry. Disconcerting, yet… comforting.\"",
-      "choices": {
-        "Embrace the unity and see what arises": "spiritual_connection",
-        "Shake off the sentiment and walk away": "overgrown_hedges"
-      }
+        "text": "Archer exhales, letting Storm’s philosophical words drift over him like petals. The hush of leaves, the distant call of an owl… all seem amplified. \"For a moment, I sense we’re woven into the same tapestry. Disconcerting, yet… comforting.\"",
+        "choices": {
+            "Embrace the unity and see what arises": "spiritual_connection",
+            "Shake off the sentiment and walk away": "overgrown_hedges"
+        }
     },
-  
     "spiritual_connection": {
-      "text": "A faint glow envelops Archer’s paws, as though the garden itself acknowledges him. \"Such a rush—like I’m linked to every seed, every breeze. If Bella could see me now, would she be impressed or amused?\"",
-      "choices": {
-        "Revel in the moment": "spiritual_reward",
-        "Snap out of it": "overgrown_hedges"
-      }
+        "text": "A faint glow envelops Archer’s paws, as though the garden itself acknowledges him. \"Such a rush—like I’m linked to every seed, every breeze. If Bella could see me now, would she be impressed or amused?\"",
+        "choices": {
+            "Revel in the moment": "spiritual_reward",
+            "Snap out of it": "overgrown_hedges"
+        }
     },
-  
     "spiritual_reward": {
-      "text": "Archer surrenders to the garden’s pulse. Glowing spores swirl around him, briefly forming his own silhouette in luminous form. Storm E. Cloud smiles knowingly. \"Accepting the land is the highest form of power.\" When the light fades, Archer finds a faint silver tuft at his paws.",
-      "choices": {
-        "Claim the tuft and continue on": "overgrown_hedges"
-      },
-      "rewards": {
-        "points": 40,
-        "items": ["Spirit Tuft"]
-      }
+        "text": "Archer surrenders to the garden’s pulse. Glowing spores swirl around him, briefly forming his own silhouette in luminous form. Storm E. Cloud smiles knowingly. \"Accepting the land is the highest form of power.\" When the light fades, Archer finds a faint silver tuft at his paws.",
+        "choices": {
+            "Claim the tuft and continue on": "overgrown_hedges"
+        },
+        "rewards": {
+            "points": 40,
+            "items": [
+                "Spirit Tuft"
+            ]
+        }
     },
-  
     "overgrown_hedges": {
-      "text": "Towering hedges form natural walls, vines twisting like living sculptures. A muffled cackle echoes somewhere—raccoon or Squirrel Brigade? \"Curiosity teases me. The garden’s secrets multiply with each step, and I’m not one to be denied.\"",
-      "choices": {
-        "Investigate the faint cackle": "raccoon_encounter",
-        "Search the vines for hidden passages": "hidden_passage",
-        "Retreat to the main path": "return_main"
-      }
+        "text": "Towering hedges form natural walls, vines twisting like living sculptures. A muffled cackle echoes somewhere—raccoon or Squirrel Brigade? \"Curiosity teases me. The garden’s secrets multiply with each step, and I’m not one to be denied.\"",
+        "choices": {
+            "Investigate the faint cackle": "raccoon_encounter",
+            "Search the vines for hidden passages": "hidden_passage",
+            "Retreat to the main path": "return_main"
+        }
     },
-  
     "raccoon_encounter": {
-      "text": "Pushing aside ivy, Archer nearly collides with Basil the Fox and a masked raccoon rifling through compost. Basil jumps. \"Archer! We’re in delicate negotiations for scraps. Care to weigh in?\" \"Diplomacy over garbage? Oddly fitting for these hedges.\"",
-      "choices": {
-        "Support Basil the Fox’s cunning plan": "support_basil",
-        "Side with the raccoon for quick loot": "side_raccoon",
-        "Stay neutral and walk away": "return_main"
-      }
+        "text": "Pushing aside ivy, Archer nearly collides with Basil the Fox and a masked raccoon rifling through compost. Basil jumps. \"Archer! We’re in delicate negotiations for scraps. Care to weigh in?\" \"Diplomacy over garbage? Oddly fitting for these hedges.\"",
+        "choices": {
+            "Support Basil the Fox’s cunning plan": "support_basil",
+            "Side with the raccoon for quick loot": "side_raccoon",
+            "Stay neutral and walk away": "return_main"
+        }
     },
-  
     "support_basil": {
-      "text": "Basil grins, impressed that Archer seems to back him. \"We can outsmart the raccoon if we orchestrate a distraction. You game?\" \"Sure. Chaos amuses me, especially when I can predict the outcome.\"",
-      "choices": {
-        "Execute Basil’s distraction plan": "basil_distraction",
-        "Betray Basil mid-plan": "side_raccoon"
-      }
+        "text": "Basil grins, impressed that Archer seems to back him. \"We can outsmart the raccoon if we orchestrate a distraction. You game?\" \"Sure. Chaos amuses me, especially when I can predict the outcome.\"",
+        "choices": {
+            "Execute Basil’s distraction plan": "basil_distraction",
+            "Betray Basil mid-plan": "side_raccoon"
+        }
     },
-  
     "basil_distraction": {
-      "text": "Archer meows theatrically, drawing the raccoon’s full attention. Basil swoops in, snagging prime scraps. The raccoon hisses in fury as Basil tosses Archer a morsel. \"Teamwork,\" Basil winks. \"Yes, I do love a quick victory. Even if it’s just scraps.\"",
-      "choices": {
-        "Accept Basil’s morsel gratefully": "morsel_accept",
-        "Refuse and walk away": "return_main"
-      },
-      "rewards": {
-        "points": 15,
-        "items": ["Scrap of Victory"]
-      }
+        "text": "Archer meows theatrically, drawing the raccoon’s full attention. Basil swoops in, snagging prime scraps. The raccoon hisses in fury as Basil tosses Archer a morsel. \"Teamwork,\" Basil winks. \"Yes, I do love a quick victory. Even if it’s just scraps.\"",
+        "choices": {
+            "Accept Basil’s morsel gratefully": "morsel_accept",
+            "Refuse and walk away": "return_main"
+        },
+        "rewards": {
+            "points": 15,
+            "items": [
+                "Scrap of Victory"
+            ]
+        }
     },
-  
     "morsel_accept": {
-      "text": "Archer sniffs the meager scrap. \"Not exactly my gourmet preference, but I’ll pretend it’s fine.\" The raccoon skulks off, Basil disappears into the hedges. \"A minor triumph, but a triumph nonetheless. Onward.\"",
-      "choices": {
-        "Continue deeper into the hedges": "hidden_passage"
-      }
+        "text": "Archer sniffs the meager scrap. \"Not exactly my gourmet preference, but I’ll pretend it’s fine.\" The raccoon skulks off, Basil disappears into the hedges. \"A minor triumph, but a triumph nonetheless. Onward.\"",
+        "choices": {
+            "Continue deeper into the hedges": "hidden_passage"
+        }
     },
-  
     "side_raccoon": {
-      "text": "Archer pretends to help Basil, but signals the raccoon to grab the scraps first. Basil yelps, shocked. \"A little betrayal spices up the night. Apologies, Basil—sometimes chaos has its own reward.\"",
-      "choices": {
-        "Snatch leftover scraps for yourself": "morsel_accept",
-        "Flee before Basil retaliates": "return_main"
-      },
-      "consequences": {
-        "points": -10
-      }
+        "text": "Archer pretends to help Basil, but signals the raccoon to grab the scraps first. Basil yelps, shocked. \"A little betrayal spices up the night. Apologies, Basil—sometimes chaos has its own reward.\"",
+        "choices": {
+            "Snatch leftover scraps for yourself": "morsel_accept",
+            "Flee before Basil retaliates": "return_main"
+        },
+        "consequences": {
+            "points": -10
+        }
     },
-  
     "hidden_passage": {
-      "text": "A curling vine reveals a secret alcove. Beneath tangling branches stands an ornate iron gate. Strange runes glow along its edges. \"I do love a challenge. Ancient magic, or just an elaborate human puzzle? Either way, it’s mine to conquer.\"",
-      "choices": {
-        "Attempt to open the gate": "gate_opening",
-        "Call out to see if anyone’s there": "call_out",
-        "Retreat to main garden path": "return_main"
-      }
+        "text": "A curling vine reveals a secret alcove. Beneath tangling branches stands an ornate iron gate. Strange runes glow along its edges. \"I do love a challenge. Ancient magic, or just an elaborate human puzzle? Either way, it’s mine to conquer.\"",
+        "choices": {
+            "Attempt to open the gate": "gate_opening",
+            "Call out to see if anyone’s there": "call_out",
+            "Retreat to main garden path": "return_main"
+        }
     },
-  
     "gate_opening": {
-      "text": "Archer fiddles with the iron latch—unresponsive. A faint hum resonates. Sunshine’s distant crow echoes in Archer’s head: \"Courage and cunning can unlock many doors.\"",
-      "choices": {
-        "Use cunning to pick the lock (Dexterity Check)": "dex_check",
-        "Try to force it open (Strength Check)": "str_check"
-      }
+        "text": "Archer fiddles with the iron latch—unresponsive. A faint hum resonates. Sunshine’s distant crow echoes in Archer’s head: \"Courage and cunning can unlock many doors.\"",
+        "choices": {
+            "Use cunning to pick the lock (Dexterity Check)": "dex_check",
+            "Try to force it open (Strength Check)": "str_check"
+        }
     },
-  
     "dex_check": {
-      "text": "\"Precision is the art of a cat burglar. Let me show this gate who’s boss.\" With a slender twig and unshakable confidence, Archer teases the latch. After tense moments, it clicks free.",
-      "choices": {
-        "Step through the gate": "secret_courtyard"
-      },
-      "rewards": {
-        "points": 15
-      }
+        "text": "\"Precision is the art of a cat burglar. Let me show this gate who’s boss.\" With a slender twig and unshakable confidence, Archer teases the latch. After tense moments, it clicks free.",
+        "choices": {
+            "Step through the gate": "secret_courtyard"
+        },
+        "rewards": {
+            "points": 15
+        }
     },
-  
     "str_check": {
-      "text": "Archer hisses, attempting brute strength on the gate. The metal doesn’t budge. Scratches mar his paws. \"A direct assault might not be my style after all. This gate mocks me with every breath.\"",
-      "choices": {
-        "Admit defeat and pick the lock": "dex_check",
-        "Turn away, nursing your pride": "return_main"
-      },
-      "consequences": {
-        "points": -5
-      }
+        "text": "Archer hisses, attempting brute strength on the gate. The metal doesn’t budge. Scratches mar his paws. \"A direct assault might not be my style after all. This gate mocks me with every breath.\"",
+        "choices": {
+            "Admit defeat and pick the lock": "dex_check",
+            "Turn away, nursing your pride": "return_main"
+        },
+        "consequences": {
+            "points": -5
+        }
     },
-  
     "call_out": {
-      "text": "Archer meows into the shadowy corridor. A faint glow shimmers, revealing Minx the Lynx in all her flamboyant poise. \"Archer, darling! Drawn to hidden treasures again, I see?\"",
-      "choices": {
-        "Ask Minx for help opening the gate": "minx_help",
-        "Retreat to main path": "return_main"
-      }
+        "text": "Archer meows into the shadowy corridor. A faint glow shimmers, revealing Minx the Lynx in all her flamboyant poise. \"Archer, darling! Drawn to hidden treasures again, I see?\"",
+        "choices": {
+            "Ask Minx for help opening the gate": "minx_help",
+            "Retreat to main path": "return_main"
+        }
     },
-  
     "minx_help": {
-      "text": "Minx traces the runes with practiced flair. \"City cats learn a trick or two, sweet kitty.\" The latch groans, then pops open. \"After you, my nocturnal prince.\" \"She flatters me, but let’s see if her help costs more than I realize.\"",
-      "choices": {
-        "Enter the newly opened gate": "secret_courtyard"
-      },
-      "rewards": {
-        "points": 10
-      }
+        "text": "Minx traces the runes with practiced flair. \"City cats learn a trick or two, sweet kitty.\" The latch groans, then pops open. \"After you, my nocturnal prince.\" \"She flatters me, but let’s see if her help costs more than I realize.\"",
+        "choices": {
+            "Enter the newly opened gate": "secret_courtyard"
+        },
+        "rewards": {
+            "points": 10
+        }
     },
-  
     "secret_courtyard": {
-      "text": "Beyond the gate lies a courtyard of moonlit tiles, swirling in mosaic patterns. A stone pedestal stands at its center, crowned with a crystal orb. \"I do love a dramatic reveal—especially one that might grant me some new advantage.\"",
-      "choices": {
-        "Inspect the orb": "inspect_orb",
-        "Call out for Minx to join you": "minx_orb",
-        "Retreat to the garden entrance": "return_main"
-      }
+        "text": "Beyond the gate lies a courtyard of moonlit tiles, swirling in mosaic patterns. A stone pedestal stands at its center, crowned with a crystal orb. \"I do love a dramatic reveal—especially one that might grant me some new advantage.\"",
+        "choices": {
+            "Inspect the orb": "inspect_orb",
+            "Call out for Minx to join you": "minx_orb",
+            "Retreat to the garden entrance": "return_main"
+        }
     },
-  
     "inspect_orb": {
-      "text": "Archer gently sets a paw on the orb. Pulses of light highlight a puzzle on the courtyard floor, each symbol reminiscent of arcane magic. \"A test of intellect and cunning. Perfect. My whiskers tingle at the possibility of triumph.\"",
-      "choices": {
-        "Attempt to solve puzzle alone": "orb_puzzle",
-        "Shout for assistance": "minx_orb"
-      }
+        "text": "Archer gently sets a paw on the orb. Pulses of light highlight a puzzle on the courtyard floor, each symbol reminiscent of arcane magic. \"A test of intellect and cunning. Perfect. My whiskers tingle at the possibility of triumph.\"",
+        "choices": {
+            "Attempt to solve puzzle alone": "orb_puzzle",
+            "Shout for assistance": "minx_orb"
+        }
     },
-  
     "minx_orb": {
-      "text": "Minx meanders over, arching a brow. \"You found yourself in over your head, didn’t you, darling? Let me see…\" She glides a paw across the orb, revealing hidden runes. \"We do this together, or not at all.\"",
-      "choices": {
-        "Solve puzzle with Minx": "orb_puzzle",
-        "Refuse help and push her away": "refuse_minx"
-      }
+        "text": "Minx meanders over, arching a brow. \"You found yourself in over your head, didn’t you, darling? Let me see…\" She glides a paw across the orb, revealing hidden runes. \"We do this together, or not at all.\"",
+        "choices": {
+            "Solve puzzle with Minx": "orb_puzzle",
+            "Refuse help and push her away": "refuse_minx"
+        }
     },
-  
     "refuse_minx": {
-      "text": "Archer scoffs. \"I require no assistance, city cat. Step aside.\" Minx narrows her eyes and departs. \"Fine, fail alone.\" The orb’s glow intensifies ominously. \"I do love a challenge, even if it bites back.\"",
-      "choices": {
-        "Attempt puzzle solo (High Risk)": "orb_puzzle",
-        "Abandon the orb and retreat": "return_main"
-      },
-      "consequences": {
-        "points": -10
-      }
+        "text": "Archer scoffs. \"I require no assistance, city cat. Step aside.\" Minx narrows her eyes and departs. \"Fine, fail alone.\" The orb’s glow intensifies ominously. \"I do love a challenge, even if it bites back.\"",
+        "choices": {
+            "Attempt puzzle solo (High Risk)": "orb_puzzle",
+            "Abandon the orb and retreat": "return_main"
+        },
+        "consequences": {
+            "points": -10
+        }
     },
-  
     "orb_puzzle": {
-      "text": "Lines of light trace a puzzle across the floor, requiring Archer to navigate without crossing his own path. Each step hums with magical tension. \"Focus, proud feline. Prove your superiority, or be shown up by a mere puzzle.\"",
-      "choices": {
-        "Confidently complete the puzzle": "puzzle_success",
-        "Grow frustrated and step incorrectly": "puzzle_fail"
-      }
+        "text": "Lines of light trace a puzzle across the floor, requiring Archer to navigate without crossing his own path. Each step hums with magical tension. \"Focus, proud feline. Prove your superiority, or be shown up by a mere puzzle.\"",
+        "choices": {
+            "Confidently complete the puzzle": "puzzle_success",
+            "Grow frustrated and step incorrectly": "puzzle_fail"
+        }
     },
-  
     "puzzle_success": {
-      "text": "The final tile settles, and the orb flares in a brilliant burst. A secret compartment slides open to reveal a gemstone etched with cat-like runes. \"A fitting prize for my brilliance. Let’s see what new mischief I can create with it.\"",
-      "choices": {
-        "Claim your gemstone prize": "gemstone_reward",
-        "Leave the puzzle behind": "return_main"
-      }
+        "text": "The final tile settles, and the orb flares in a brilliant burst. A secret compartment slides open to reveal a gemstone etched with cat-like runes. \"A fitting prize for my brilliance. Let’s see what new mischief I can create with it.\"",
+        "choices": {
+            "Claim your gemstone prize": "gemstone_reward",
+            "Leave the puzzle behind": "return_main"
+        }
     },
-  
     "gemstone_reward": {
-      "text": "The gemstone vibrates with power. Bella’s voice resonates: \"Remember, Archer, true power must be balanced with humility.\" Archer mentally retorts, \"Humility’s best in small doses, dear Bella… but I appreciate the thought.\"",
-      "choices": {
-        "Return to the main garden": "return_main"
-      },
-      "rewards": {
-        "points": 50,
-        "items": ["Moonlit Gemstone"]
-      }
+        "text": "The gemstone vibrates with power. Bella’s voice resonates: \"Remember, Archer, true power must be balanced with humility.\" Archer mentally retorts, \"Humility’s best in small doses, dear Bella… but I appreciate the thought.\"",
+        "choices": {
+            "Return to the main garden": "return_main"
+        },
+        "rewards": {
+            "points": 50,
+            "items": [
+                "Moonlit Gemstone"
+            ]
+        }
     },
-  
     "puzzle_fail": {
-      "text": "A misstep triggers a searing jolt of energy. Archer snarls, nearly toppling. \"Blast this contraption! I won’t let a puzzle best me… but perhaps I need a break before trying again.\"",
-      "choices": {
-        "Try again": "orb_puzzle",
-        "Limp away angrily": "return_main"
-      },
-      "consequences": {
-        "points": -20
-      }
+        "text": "A misstep triggers a searing jolt of energy. Archer snarls, nearly toppling. \"Blast this contraption! I won’t let a puzzle best me… but perhaps I need a break before trying again.\"",
+        "choices": {
+            "Try again": "orb_puzzle",
+            "Limp away angrily": "return_main"
+        },
+        "consequences": {
+            "points": -20
+        }
     },
-  
     "return_main": {
-      "text": "Archer emerges back to the main garden path. The moon hangs higher now, casting a deeper magic over the blooms. \"I’ve found wonders, faced illusions. But the night isn’t done. Shall I seek new riddles or call it a night? Choices beckon.\"",
-      "choices": {
-        "Head to the Pond’s glow": "glow_pond",
-        "Return to the coop": "coop_exit.json",
-        "Call it a night and climb the fence": "fence.json"
-      }
+        "text": "Archer emerges back to the main garden path. The moon hangs higher now, casting a deeper magic over the blooms. \"I’ve found wonders, faced illusions. But the night isn’t done. Shall I seek new riddles or call it a night? Choices beckon.\"",
+        "choices": {
+            "Head to the Pond’s glow": "glow_pond",
+            "Return to the coop": "coop_exit.json",
+            "Call it a night and climb the fence": "fence.json"
+        }
     },
-  
     "glow_pond": {
-      "text": "Archer pads toward the pond, where fireflies dance above serene water. Martin the Ambassador stands there, tail swishing, scribbling notes on a small map. He smiles upon seeing Archer: \"Ah, the pond is too lovely not to document.\"",
-      "choices": {
-        "Chat with Martin about Homestead politics": "chat_martin",
-        "Take a quiet moment to gaze at reflections": "reflect_pond",
-        "Head back to the main path": "return_main"
-      }
+        "text": "Archer pads toward the pond, where fireflies dance above serene water. Martin the Ambassador stands there, tail swishing, scribbling notes on a small map. He smiles upon seeing Archer: \"Ah, the pond is too lovely not to document.\"",
+        "choices": {
+            "Chat with Martin about Homestead politics": "chat_martin",
+            "Take a quiet moment to gaze at reflections": "reflect_pond",
+            "Head back to the main path": "return_main"
+        }
     },
-  
     "chat_martin": {
-      "text": "Martin’s eyes glint with excitement. \"We’re building alliances, planning expansions. The Homestead’s future blooms bright—your cunning could help unify the species, Archer.\" \"At least someone sees my value. But do I care to herd these alliances, or is my ambition purely personal?\"",
-      "choices": {
-        "Agree to help Martin’s diplomacy": "diplomacy_help",
-        "Scoff at the idea of alliances": "diplomacy_reject"
-      }
+        "text": "Martin’s eyes glint with excitement. \"We’re building alliances, planning expansions. The Homestead’s future blooms bright—your cunning could help unify the species, Archer.\" \"At least someone sees my value. But do I care to herd these alliances, or is my ambition purely personal?\"",
+        "choices": {
+            "Agree to help Martin’s diplomacy": "diplomacy_help",
+            "Scoff at the idea of alliances": "diplomacy_reject"
+        }
     },
-  
     "diplomacy_help": {
-      "text": "Archer nods in a regal manner. Martin brightens, \"Your eloquence might sway many. Bella will be pleased to hear it.\" \"Ah, the thrill of shaping destinies—though I do enjoy shaping them to my advantage, primarily.\"",
-      "choices": {
-        "Accept the accolades and depart": "return_main"
-      },
-      "rewards": {
-        "points": 10
-      }
+        "text": "Archer nods in a regal manner. Martin brightens, \"Your eloquence might sway many. Bella will be pleased to hear it.\" \"Ah, the thrill of shaping destinies—though I do enjoy shaping them to my advantage, primarily.\"",
+        "choices": {
+            "Accept the accolades and depart": "return_main"
+        },
+        "rewards": {
+            "points": 10
+        }
     },
-  
     "diplomacy_reject": {
-      "text": "Archer brushes a paw dismissively. \"Alliances, bureaucracy… tedious. I prefer the raw thrill of adventure.\" Martin sighs. \"The Homestead will progress, with or without you, Archer. But your brilliance would be missed.\" \"Flattery noted, but chaos calls.\"",
-      "choices": {
-        "Wander off, uncommitted": "return_main"
-      },
-      "consequences": {
-        "points": -5
-      }
+        "text": "Archer brushes a paw dismissively. \"Alliances, bureaucracy… tedious. I prefer the raw thrill of adventure.\" Martin sighs. \"The Homestead will progress, with or without you, Archer. But your brilliance would be missed.\" \"Flattery noted, but chaos calls.\"",
+        "choices": {
+            "Wander off, uncommitted": "return_main"
+        },
+        "consequences": {
+            "points": -5
+        }
     },
-  
     "reflect_pond": {
-      "text": "Archer gazes into the pond, seeing not just his reflection but a tapestry of stars drifting in the mirrored sky. \"Am I the center of this universe, or just one shining point among many? The water ripples, urging me to decide which illusions I cherish.\"",
-      "choices": {
-        "Contemplate deeper truths (Gain Wisdom)": "deep_truths",
-        "Brush off these fleeting thoughts": "return_main"
-      }
+        "text": "Archer gazes into the pond, seeing not just his reflection but a tapestry of stars drifting in the mirrored sky. \"Am I the center of this universe, or just one shining point among many? The water ripples, urging me to decide which illusions I cherish.\"",
+        "choices": {
+            "Contemplate deeper truths (Gain Wisdom)": "deep_truths",
+            "Brush off these fleeting thoughts": "return_main"
+        }
     },
-  
     "deep_truths": {
-      "text": "The ripple widens, each wave carrying a sense of cosmic unity. Archer’s mind drifts to the Spirit Tuft, the gentle voice of Storm, and Bella’s unwavering counsel. \"Perhaps arrogance is sweet, but fleeting; wisdom endures, if I let it. A curious thought indeed.\"",
-      "choices": {
-        "Embrace this wisdom and move on": "return_main"
-      },
-      "rewards": {
-        "points": 15
-      }
+        "text": "The ripple widens, each wave carrying a sense of cosmic unity. Archer’s mind drifts to the Spirit Tuft, the gentle voice of Storm, and Bella’s unwavering counsel. \"Perhaps arrogance is sweet, but fleeting; wisdom endures, if I let it. A curious thought indeed.\"",
+        "choices": {
+            "Embrace this wisdom and move on": "return_main"
+        },
+        "rewards": {
+            "points": 15
+        }
     }
-  }
-  
+}

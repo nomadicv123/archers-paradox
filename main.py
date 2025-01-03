@@ -1,118 +1,8 @@
 import streamlit as st
 import json
 import os
-from io import BytesIO
-# from reportlab.pdfgen import canvas  # Uncomment if using PDF generation
 
-# Placeholder dictionary for node-based Archerisms (feel free to expand!)
-archerisms_per_scene = {
-    "root": "A new dawn of chaos beckons. No better time to sharpen my claws.",
-    "edge_of_water": "Standing at the water's edge is like flirting with fate—she likes a bold suitor.",
-    "coop_exit": "The coop behind, the night ahead. Where the real intrigue begins.",
-    # Add more node keys as you wish...
-}
-
-# ---------------------------------------------
-# Utility functions to load JSON and get nodes
-# ---------------------------------------------
-def load_json_file(file_name: str) -> dict:
-    """
-    Loads a JSON file from the story_data folder.
-    """
-    full_path = os.path.join("story_data", file_name)
-    with open(full_path, 'r', encoding='utf-8') as f:
-        return json.load(f)
-
-def get_node_data(story_data: dict, node_key: str) -> dict:
-    """
-    Return the data (text, choices, etc.) for a given node_key.
-    
-    If node_key = 'root', we return top-level fields from story_data.
-    Otherwise, we return story_data[node_key].
-    """
-    if node_key == "root":
-        return {
-            "text": story_data.get("text", ""),
-            "choices": story_data.get("choices", {}),
-            "rewards": story_data.get("rewards", {}),
-            "consequences": story_data.get("consequences", {}),
-            "requirements": story_data.get("requirements", [])
-        }
-    else:
-        return story_data.get(node_key, {})
-
-def set_current_story(file_name: str):
-    """
-    Load a new story JSON from story_data folder and reset current node to 'root'.
-    """
-    st.session_state.current_file = file_name
-    st.session_state.story_data = load_json_file(file_name)
-    st.session_state.current_node = "root"
-    st.session_state.visited_nodes.clear()
-
-# ----------------------------------------------
-# Helper for "Share This Moment" PDF
-# ----------------------------------------------
-def text_wrap(canvas_obj, text, x=70, y=None, max_width=450, line_height=14):
-    """
-    A helper to wrap text within a specified max width. 
-    Returns the Y position after drawing.
-    If 'y' is None, we assume a default or the last used position.
-    """
-    if not hasattr(canvas_obj, "current_y"):
-        canvas_obj.current_y = 700  # default top if none given
-    if y is not None:
-        canvas_obj.current_y = y
-
-    from textwrap import wrap
-    lines = wrap(text, width=60)  # Adjust wrap width as needed
-    for line in lines:
-        canvas_obj.drawString(x, canvas_obj.current_y, line)
-        canvas_obj.current_y -= line_height
-
-    return canvas_obj.current_y
-
-def generate_pdf(points: int, inventory: list, current_node: str, node_data: dict) -> BytesIO:
-    """
-    Generate a PDF that captures an 'Archerism' about the current scene,
-    plus player's points & inventory.
-    """
-    buffer = BytesIO()
-    c = canvas.Canvas(buffer)
-
-    # Title
-    c.setFont("Helvetica-Bold", 16)
-    c.drawString(70, 780, "Archer’s Paradox: Share This Moment")
-
-    # Scene info (Archerism)
-    c.setFont("Helvetica", 12)
-    archerism = archerisms_per_scene.get(
-        current_node, 
-        "Chaos is my domain, and the night is my stage."
-    )
-    c.drawString(70, 750, f"Scene: {current_node}")
-    text_wrap(c, f"Archer’s Reflection: {archerism}", x=70, y=730, max_width=450)
-
-    # Scene description from node
-    scene_text = node_data.get("text", "No scene text found.")
-    text_wrap(c, f"Scene Description: {scene_text}", x=70, y=None, max_width=450)
-
-    # Player Stats
-    y_pos = text_wrap(c, f"Points: {points}", x=70, y=None, max_width=450) - 20
-    c.drawString(70, y_pos, "Inventory:")
-    y_pos -= 20
-    if inventory:
-        for item in inventory:
-            c.drawString(90, y_pos, f"- {item}")
-            y_pos -= 20
-    else:
-        c.drawString(90, y_pos, "(No items)")
-
-    c.showPage()
-    c.save()
-    buffer.seek(0)
-    return buffer
-
+# Define share messages for items
 item_share_text = {
     # -------------
     # CHICKEN COOP
@@ -227,108 +117,113 @@ item_share_text = {
     ),
 }
 
-# ----------------------------------------------
-# Check if user can access a node (item gating)
-# ----------------------------------------------
-def can_access_node(story_data: dict, node_key: str) -> bool:
-    node_data = get_node_data(story_data, node_key)
-    requirements = node_data.get("requirements", [])
-    for req_item in requirements:
-        if req_item not in st.session_state.inventory:
-            return False
-    return True
+# ---------------------------------------------
+# Utility functions to load JSON and get nodes
+# ---------------------------------------------
+def load_json_file(file_name: str) -> dict:
+    """
+    Loads a JSON file from the story_data folder.
+    """
+    full_path = os.path.join("story_data", file_name)
+    try:
+        with open(full_path, 'r', encoding='utf-8') as f:
+            return json.load(f)
+    except FileNotFoundError:
+        st.error(f"File '{file_name}' not found in 'story_data' directory.")
+        return {}
+    except json.JSONDecodeError as e:
+        st.error(f"JSON decode error in file '{file_name}': {e}")
+        return {}
 
-# ----------------------------------------------
-# Integrate Expansion Packs
-# ----------------------------------------------
-def integrate_expansion(expansion_data: dict):
+def get_node_data(story_data: dict, node_key: str) -> dict:
     """
-    Integrates an expansion JSON into the current story data.
+    Returns the data (text, choices, etc.) for a given node_key.
     """
-    nodes = expansion_data.get("nodes", {})
-    unlockables = expansion_data.get("unlockables", {})
-    
-    # Add new nodes to the story data
-    for key, value in nodes.items():
-        st.session_state.story_data[key] = value
-    
-    # Unlock choices in existing nodes
-    for node_key, choices in unlockables.items():
-        if node_key in st.session_state.story_data:
-            for choice_label, choice_value in choices.items():
-                # Ensure that choice_value is either a string or a dictionary
-                if isinstance(choice_value, (str, dict)):
-                    st.session_state.story_data[node_key]["choices"][choice_label] = choice_value
-                else:
-                    st.error(f"Invalid choice value type for '{choice_label}' in node '{node_key}': {type(choice_value)}")
+    node = story_data.get(node_key)
+    if not node:
+        st.error(f"Node '{node_key}' not found in '{st.session_state.current_file}'. Resetting to 'start'.")
+        # Reset to start node if available
+        if "start" in story_data:
+            st.session_state.current_node = "start"
+            return story_data["start"]
+        else:
+            return {"text": "Start node is missing in the JSON file.", "choices": {}}
+    return node
+
+def set_current_node(node_key: str, file_key: str = None):
+    """
+    Updates the current node and possibly the current file in session state.
+    """
+    if file_key:
+        st.session_state.current_file = file_key
+        st.session_state.story_data = load_json_file(file_key)
+        st.session_state.current_node = node_key
+    else:
+        st.session_state.current_node = node_key
+    st.rerun()
 
 # ----------------------------------------------
 # Apply rewards or consequences
 # ----------------------------------------------
 def apply_rewards_and_consequences(node_data: dict):
     newly_awarded_items = []
-
-    # Rewards
+    
+    # Apply rewards
     rewards = node_data.get("rewards", {})
-    reward_points = rewards.get("points", 0)
-    reward_items = rewards.get("items", [])
-
-    if reward_points:
-        st.session_state.points += reward_points
-
-    for item in reward_items:
+    st.session_state.points += rewards.get("points", 0)
+    for item in rewards.get("items", []):
         if item not in st.session_state.inventory:
             st.session_state.inventory.append(item)
             newly_awarded_items.append(item)
     
-    # Consequences
+    # Apply consequences
     consequences = node_data.get("consequences", {})
-    consequence_points = consequences.get("points", 0)
-    items_lost = consequences.get("items_lost", [])
-
-    if consequence_points:
-        st.session_state.points += consequence_points
-    
-    for item in items_lost:
+    st.session_state.points += consequences.get("points", 0)
+    for item in consequences.get("items_lost", []):
         if item in st.session_state.inventory:
             st.session_state.inventory.remove(item)
-
-    # Show share text if new items were awarded
+    
+    # Store newly awarded items in session state for later notification
     if newly_awarded_items:
-        for item in newly_awarded_items:
-            share_msg = item_share_text.get(
-                item,
-                f"I just obtained **{item}** in Archer’s Paradox! #ArcherParadox #COYA"
-            )
-            st.markdown(
-                f"""
-                <div style="background-color:#222; padding:15px; margin:10px 0; border-left:4px solid #AAA;">
-                  <p style="color:#FFEE99; font-weight:bold;">
-                    New Item Acquired: {item}
-                  </p>
-                  <p style="color:#DDD;">
-                    Copy this snippet and share your triumph on social media!
-                  </p>
-                  <textarea rows="3" style="width:100%; background:#333; color:#FFF;">{share_msg}</textarea>
-                </div>
-                """,
-                unsafe_allow_html=True
-            )
+        if "new_items" not in st.session_state:
+            st.session_state.new_items = []
+        st.session_state.new_items.extend(newly_awarded_items)
+
+# ----------------------------------------------
+# Save and Load Progress Functions
+# ----------------------------------------------
+def save_progress() -> str:
+    """
+    Generates a JSON string of the current progress.
+    """
+    progress_data = {
+        "current_file": st.session_state.current_file,
+        "current_node": st.session_state.current_node,
+        "points": st.session_state.points,
+        "inventory": st.session_state.inventory
+    }
+    return json.dumps(progress_data, indent=2)
+
+def load_progress(uploaded_file) -> dict:
+    """
+    Loads the progress from an uploaded JSON file.
+    """
+    return json.load(uploaded_file)
 
 # ---------------------
 # Main Streamlit app
 # ---------------------
 def main():
-    st.set_page_config(page_title="Archer’s Paradox", layout="centered")
-    st.title("Archer’s Paradox")
-
+    # Page Configuration
+    st.set_page_config(page_title="Archer's Paradox", layout="centered")
+    
     # 1) Initialize session state
     if "current_file" not in st.session_state:
         st.session_state.current_file = "intro.json"
     if "story_data" not in st.session_state:
         st.session_state.story_data = load_json_file(st.session_state.current_file)
     if "current_node" not in st.session_state:
-        st.session_state.current_node = "root"
+        st.session_state.current_node = "start"  # 'start' is the root node
 
     if "points" not in st.session_state:
         st.session_state.points = 0
@@ -338,13 +233,20 @@ def main():
         st.session_state.visited_nodes = set()
 
     # ------------------------------
-    # Sidebar with Logo and Stats
+    # Sidebar Enhancements
     # ------------------------------
     with st.sidebar:
-        st.image(
-            "assets/mobilelogo.png",
-            width=200
-        )
+        # Add logo at the top, centered
+        logo_path = os.path.join("assets", "mobilelogo.png")
+        if os.path.exists(logo_path):
+            st.image(logo_path, use_container_width=False, width=250, caption=None)
+        else:
+            # Using an online placeholder logo if local one is missing
+            st.image("https://via.placeholder.com/150", use_container_width=False, width=150, caption=None)
+
+        st.markdown("---")
+
+        # Player Stats
         st.header("Player Stats")
         st.write(f"**Points:** {st.session_state.points}")
 
@@ -355,141 +257,234 @@ def main():
         else:
             st.write("**Inventory:** (empty)")
 
-        # Collapsible box for Save/Load Progress
-        with st.expander("Save / Load Progress", expanded=False):
-            # Load
-            upload_file = st.file_uploader("Load a previously saved JSON", type=["json"], key="load_progress_upload")
-            if upload_file is not None:
-                try:
-                    data = json.load(upload_file)
-                    st.session_state.points = data.get("points", 0)
-                    st.session_state.inventory = data.get("inventory", [])
-                    st.session_state.current_file = data.get("file", "intro.json")
-                    st.session_state.current_node = data.get("node", "root")
-                    st.session_state.story_data = load_json_file(st.session_state.current_file)
-                    st.session_state.visited_nodes.clear()
-                    st.success("Progress loaded successfully!")
-                    st.rerun()
-                except Exception as e:
-                    st.error(f"Failed to load progress: {e}")
+        st.markdown("---")
 
-            # Save
-            if st.button("Save My Progress"):
-                progress_data = {
-                    "points": st.session_state.points,
-                    "inventory": st.session_state.inventory,
-                    "file": st.session_state.current_file,
-                    "node": st.session_state.current_node,
-                }
-                download_str = json.dumps(progress_data, indent=2)
+        # Collapsible Save/Load Section
+        with st.expander("Save / Load Progress"):
+            # Save Progress
+            save_button_sidebar = st.button("Save My Progress")
+            if save_button_sidebar:
+                progress_json = save_progress()
                 st.download_button(
                     label="Download Progress JSON",
-                    data=download_str,
-                    file_name="archers_paradox_progress.json",
+                    data=progress_json,
+                    file_name="archers_adventure_progress.json",
                     mime="application/json"
                 )
 
-        # ---- "Share This Moment" (PDF) ----
-        # Uncomment if you want to enable PDF sharing
-        # if st.button("Share This Moment"):
-        #     node_data = get_node_data(st.session_state.story_data, st.session_state.current_node)
-        #     pdf_buffer = generate_pdf(
-        #         st.session_state.points,
-        #         st.session_state.inventory,
-        #         st.session_state.current_node,
-        #         node_data
-        #     )
-        #     st.download_button(
-        #         label="Download Archer’s Reflection (PDF)",
-        #         data=pdf_buffer,
-        #         file_name="Archer_Paradox_Reflection.pdf",
-        #         mime="application/pdf"
-        #     )
+            # Load Progress
+            uploaded_file_sidebar = st.file_uploader("Load a previously saved JSON", type=["json"], key="load_progress")
 
-        # ---- Load Expansion Pack ----
-        with st.expander("Load Expansion Pack", expanded=False):
-            uploaded_expansion = st.file_uploader("Upload Expansion JSON", type=["json"], key="load_expansion_upload")
-            if uploaded_expansion is not None:
+            # **NEW: Introduce a Separate 'Load Progress' Button**
+            load_button_sidebar = st.button("Load Progress")
+            if load_button_sidebar and uploaded_file_sidebar is not None:
                 try:
-                    # Ensure that uploaded_expansion is an UploadedFile
-                    if hasattr(uploaded_expansion, 'name') and hasattr(uploaded_expansion, 'getbuffer'):
-                        # Save the uploaded file to the story_data folder
-                        expansion_filename = uploaded_expansion.name
-                        expansion_filepath = os.path.join("story_data", expansion_filename)
-                        with open(expansion_filepath, "wb") as f:
-                            f.write(uploaded_expansion.getbuffer())
-
-                        # Load the expansion JSON and integrate it into session state
-                        expansion_data = load_json_file(expansion_filename)
-                        integrate_expansion(expansion_data)  # Add new branches or nodes
-                        st.success(f"Expansion pack '{expansion_filename}' loaded successfully!")
-                        st.rerun()
+                    data = load_progress(uploaded_file_sidebar)
+                    # Validate loaded data
+                    required_keys = {"current_file", "current_node", "points", "inventory"}
+                    if not required_keys.issubset(data.keys()):
+                        st.error("Loaded progress is missing required fields.")
                     else:
-                        st.error("Uploaded expansion is not a valid file.")
+                        # Load the new file
+                        st.session_state.current_file = data.get("current_file", "intro.json")
+                        st.session_state.story_data = load_json_file(st.session_state.current_file)
+                        # Set the new node
+                        st.session_state.current_node = data.get("current_node", "start")
+                        st.session_state.points = data.get("points", 0)
+                        st.session_state.inventory = data.get("inventory", [])
+                        st.session_state.visited_nodes = set()  # Reset visited nodes upon loading
+                        st.success("Progress loaded successfully!")
+                        # **REMOVE: st.rerun()**
+                        # Allow Streamlit to handle reruns naturally
+
+                except json.JSONDecodeError as e:
+                    st.error(f"Failed to load progress: Invalid JSON format. {e}")
                 except Exception as e:
-                    st.error(f"Failed to load expansion pack: {e}")
+                    st.error(f"Failed to load progress: {e}")
 
-    # 2) Retrieve the current node data
+    # ------------------------------
+    # Retrieve current node data
+    # ------------------------------
     node_data = get_node_data(st.session_state.story_data, st.session_state.current_node)
+    choices = node_data.get("choices", {})
 
-    # 3) Display story text in a dark "card"
-    story_text = node_data.get("text", "No text found for this node.")
+    # ------------------------------
+    # Apply rewards/consequences if first time visiting the node
+    # ------------------------------
+    if st.session_state.current_node not in st.session_state.visited_nodes:
+        if isinstance(node_data, dict):
+            apply_rewards_and_consequences(node_data)
+            st.session_state.visited_nodes.add(st.session_state.current_node)
+
+    # ------------------------------
+    # Display Configurable Title and Subtitle
+    # ------------------------------
+    st.markdown("<h1 style='text-align: center;'>Archer's Paradox</h1>", unsafe_allow_html=True)
+    st.markdown("<h3 style='text-align: center;'>//v 1.2</h3>", unsafe_allow_html=True)
+
+    # ------------------------------
+    # Display Horizontal Rule
+    # ------------------------------
+    st.markdown("<hr>", unsafe_allow_html=True)
+
+    # ------------------------------
+    # Display Centered Image (if exists)
+    # ------------------------------
+    image_url = node_data.get("image", None)
+    if image_url:
+        # Determine if it's a local path or a URL
+        if image_url.startswith("http://") or image_url.startswith("https://"):
+            # It's a URL
+            try:
+                st.image(image_url, use_container_width=True, caption=None, width=300)
+            except Exception as e:
+                st.error(f"Failed to load image from URL '{image_url}': {e}")
+        else:
+            # It's a local file
+            absolute_image_path = os.path.join(os.path.dirname(__file__), image_url)
+            if os.path.exists(absolute_image_path):
+                try:
+                    st.image(absolute_image_path, use_container_width=True, caption=None, width=300)
+                except Exception as e:
+                    st.error(f"Failed to load image '{absolute_image_path}': {e}")
+            else:
+                st.error(f"Image file '{absolute_image_path}' not found.")
+    else:
+        # Optionally, display a default image or skip
+        pass  # No image to display
+
+    # ------------------------------
+    # Display Story Text in a Styled Dark Card
+    # ------------------------------
     st.markdown(
         f"""
-        <div style='background-color:#333333; 
-                    border-radius:10px; 
-                    padding:20px; 
-                    margin-bottom:20px;
-                    border: 1px solid #555;
-                    color: #ffffff;'>
-            {story_text}
+        <div style="
+            border: 1px solid #444;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #333;
+            color: #fff;
+            max-width: 800px;
+            margin: 20px auto;
+            text-align: left;
+        ">
+            <p style="font-size: 18px;">{node_data.get('text', 'No text available.')}</p>
         </div>
         """,
         unsafe_allow_html=True
     )
 
-    # 4) Apply rewards/consequences if first time
-    if st.session_state.current_node not in st.session_state.visited_nodes:
-        apply_rewards_and_consequences(node_data)
-        st.session_state.visited_nodes.add(st.session_state.current_node)
+    # ------------------------------
+    # Display Notifications for New Items
+    # ------------------------------
+    if "new_items" in st.session_state and st.session_state.new_items:
+        for item in st.session_state.new_items:
+            share_msg = item_share_text.get(
+                item,
+                f"I just acquired **{item}** in Archer’s Paradox! #ArcherParadox #COYA"
+            )
+            st.markdown(
+                f"""
+                <div style="
+                    background-color:#222;
+                    padding:15px;
+                    margin:10px 0;
+                    border-left:4px solid #AAA;
+                    border-radius:5px;
+                ">
+                  <p style="color:#FFEE99; font-weight:bold;">
+                    New Item Acquired: {item}
+                  </p>
+                  <p style="color:#DDD;">
+                    Copy this snippet and share your triumph on social media!
+                  </p>
+                  <textarea rows="3" style="width:100%; background:#333; color:#FFF;" readonly>{share_msg}</textarea>
+                </div>
+                """,
+                unsafe_allow_html=True
+            )
+        # Clear the new_items after displaying to prevent duplicate notifications
+        st.session_state.new_items = []
 
-    # 5) Display choices as buttons (with item gating and expansion pack support)
-    choices = node_data.get("choices", {})
+    # ------------------------------
+    # Display "Choices" Header
+    # ------------------------------
+    st.markdown("<h4>Choices:</h4>", unsafe_allow_html=True)
+
+    # ------------------------------
+    # Display Choices Below the "Choices" Header
+    # ------------------------------
     if choices:
-        st.subheader("Choices:")
         for choice_label, choice_value in choices.items():
-            # Ensure that choice_value is either a string or a dictionary before proceeding
             if isinstance(choice_value, str):
-                if choice_value.endswith(".json"):
-                    # Load a new JSON file
+                if choice_value.endswith('.json'):
+                    # Choice leads to another JSON file (expansion pack)
                     if st.button(choice_label):
-                        set_current_story(choice_value)
-                        st.rerun()
+                        set_current_node("start", choice_value)
                 else:
-                    if can_access_node(st.session_state.story_data, choice_value):
-                        if st.button(choice_label):
-                            st.session_state.current_node = choice_value
-                            st.rerun()
-                    else:
-                        st.button(f"{choice_label} (Locked)", disabled=True)
+                    # Choice leads to a node within the current JSON
+                    if st.button(choice_label):
+                        set_current_node(choice_value)
             elif isinstance(choice_value, dict):
-                tease_message = choice_value.get("tease", "This path requires an expansion pack.")
+                # Choice is a tease for an expansion pack
+                tease = choice_value.get("tease", "This path requires an expansion pack.")
                 unlock_key = choice_value.get("unlock_key")
-                # Check if the unlock_key is loaded (i.e., its node exists in story_data)
-                if isinstance(unlock_key, str) and unlock_key in st.session_state.story_data:
-                    # Extract the node key by removing the .json extension
-                    node_key = os.path.splitext(unlock_key)[0]
+
+                if unlock_key and os.path.exists(os.path.join("story_data", unlock_key)):
+                    # If expansion pack is available, enable the choice
                     if st.button(choice_label):
-                        st.session_state.current_node = node_key
-                        st.rerun()
+                        set_current_node("start", unlock_key)
                 else:
-                    # Display as locked with tease message
+                    # Disable the button and show the tease message
                     st.button(f"{choice_label} (Locked)", disabled=True)
-                    st.markdown(f"*{tease_message}*")
+                    st.markdown(f"*{tease}*")
             else:
-                # Handle unexpected types gracefully
+                # Invalid choice format
                 st.button(f"{choice_label} (Invalid)", disabled=True)
-                st.error(f"Invalid choice value type for '{choice_label}': {type(choice_value).__name__}")
+                st.error(f"Invalid choice format for '{choice_label}'.")
+    else:
+        st.write("No choices available for this node.")
+
+    # ------------------------------
+    # Display Horizontal Rule
+    # ------------------------------
+    st.markdown("<hr>", unsafe_allow_html=True)
+
+    # ------------------------------
+    # Display Centered Audio Player (if exists)
+    # ------------------------------
+    audio_url = node_data.get("audio", None)
+    if audio_url:
+        # Determine if it's a local path or a URL
+        if audio_url.startswith("http://") or audio_url.startswith("https://"):
+            # It's a URL
+            try:
+                st.audio(audio_url, format='audio/mp3')
+            except Exception as e:
+                st.error(f"Failed to load audio from URL '{audio_url}': {e}")
+        else:
+            # It's a local file
+            absolute_audio_path = os.path.join(os.path.dirname(__file__), audio_url)
+            if os.path.exists(absolute_audio_path):
+                try:
+                    st.audio(absolute_audio_path, format='audio/mp3')
+                except Exception as e:
+                    st.error(f"Failed to load audio '{absolute_audio_path}': {e}")
+            else:
+                st.error(f"Audio file '{absolute_audio_path}' not found.")
+    else:
+        # Optionally, display a default audio or skip
+        pass  # No audio to display
+
+    # ------------------------------
+    # Debug Information (Optional)
+    # ------------------------------
+    # with st.expander("Debug Info (Optional)", expanded=False):
+    #    st.write(f"**Current File:** {st.session_state.current_file}")
+    #    st.write(f"**Current Node:** {st.session_state.current_node}")
+    #    st.write(f"**Points:** {st.session_state.points}")
+    #    st.write(f"**Inventory:** {st.session_state.inventory}")
+    #    st.write(f"**Visited Nodes:** {st.session_state.visited_nodes}")
 
 if __name__ == "__main__":
     main()

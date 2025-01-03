@@ -1,338 +1,318 @@
 {
-    "text": "\"They call this Hedgewatch Hedgequarters, the vigilant heart of the Homestead’s perimeter. A place where foxes, felines, and other devoted souls convene to guard against ghosts in the shadows—or so I’ve heard. I sense a swirl of secrets here, like fireflies trapped in ivy. Time to rattle the vines.\"",
-    "choices": {
-      "Enter the Hedgequarters": "hedge_intro",
-      "Skirt around the outer hedges": "hedge_perimeter",
-      "Return to the coop": "coop_exit.json"
+    "start": {
+        "text": "\"They call this Hedgewatch Hedgequarters, the vigilant heart of the Homestead’s perimeter. A place where foxes, felines, and other devoted souls convene to guard against ghosts in the shadows—or so I’ve heard. I sense a swirl of secrets here, like fireflies trapped in ivy. Time to rattle the vines.\"",
+        "choices": {
+            "Enter the Hedgequarters": "hedge_intro",
+            "Skirt around the outer hedges": "hedge_perimeter",
+            "Return to the coop": "coop_exit.json"
+        },
+        "rewards": {
+            "points": 5
+        }
     },
-    "rewards": {
-      "points": 5
-    },
-  
     "hedge_intro": {
-      "text": "A rustic wooden arch welcomes Archer into Hedgewatch HQ. Lanterns drip soft light onto tangles of ivy. Basil the Fox, tail poised, nods in greeting: \"Good timing, Archer. We’ve some strange footprints to discuss.\" Henry the House Panther stands like a statue, scanning the horizon. Tia the cat, official scribe, brandishes her quill. \"It’s a masquerade of diligence, but under it lies intrigue—just my style.\"",
-      "choices": {
-        "Approach Basil for details": "basil_briefing",
-        "Speak to Tia the Scribe": "tia_scribe",
-        "Whisper with Henry the Panther": "henry_panther",
-        "Look around the HQ": "hedge_hub"
-      },
-      "rewards": {
-        "points": 5
-      }
+        "text": "A rustic wooden arch welcomes Archer into Hedgewatch HQ. Lanterns drip soft light onto tangles of ivy. Basil the Fox, tail poised, nods in greeting: \"Good timing, Archer. We’ve some strange footprints to discuss.\" Henry the House Panther stands like a statue, scanning the horizon. Tia the cat, official scribe, brandishes her quill. \"It’s a masquerade of diligence, but under it lies intrigue—just my style.\"",
+        "choices": {
+            "Approach Basil for details": "basil_briefing",
+            "Speak to Tia the Scribe": "tia_scribe",
+            "Whisper with Henry the Panther": "henry_panther",
+            "Look around the HQ": "hedge_hub"
+        },
+        "rewards": {
+            "points": 5
+        }
     },
-  
     "basil_briefing": {
-      "text": "Basil’s ears flick in quiet urgency. \"We’ve spotted odd tracks by the northern hedge—could be raccoons, could be worse. Your cunning might help us investigate.\" \"An official Hedgewatch quest? Flattery will get him everywhere—maybe I’ll oblige.\"",
-      "choices": {
-        "Agree to investigate tracks": "track_investigation",
-        "Ask for more intel first": "basil_more_info",
-        "Return to HQ center": "hedge_hub"
-      },
-      "rewards": {
-        "points": 5
-      }
+        "text": "Basil’s ears flick in quiet urgency. \"We’ve spotted odd tracks by the northern hedge—could be raccoons, could be worse. Your cunning might help us investigate.\" \"An official Hedgewatch quest? Flattery will get him everywhere—maybe I’ll oblige.\"",
+        "choices": {
+            "Agree to investigate tracks": "track_investigation",
+            "Ask for more intel first": "basil_more_info",
+            "Return to HQ center": "hedge_hub"
+        },
+        "rewards": {
+            "points": 5
+        }
     },
-  
     "basil_more_info": {
-      "text": "Basil narrows his eyes. \"We don’t have confirmation—raccoons, perhaps. Martin the Ambassador suggests pranking squirrels. Who knows. Either way, ignoring it isn’t wise. If you need supplies, Tia can help.\" \"Knowledge is a key that opens many locks—though chaos sometimes just picks them.\"",
-      "choices": {
-        "Accept the mission now": "track_investigation",
-        "Decline politely": "hedge_hub"
-      }
+        "text": "Basil narrows his eyes. \"We don’t have confirmation—raccoons, perhaps. Martin the Ambassador suggests pranking squirrels. Who knows. Either way, ignoring it isn’t wise. If you need supplies, Tia can help.\" \"Knowledge is a key that opens many locks—though chaos sometimes just picks them.\"",
+        "choices": {
+            "Accept the mission now": "track_investigation",
+            "Decline politely": "hedge_hub"
+        }
     },
-  
     "track_investigation": {
-      "text": "Basil leads Archer through a corridor of hedges, pawprints etched in dew. \"Deliberate spacing—whoever made them wanted to be noticed or not noticed at all. Suspicion has a certain melody, and I’d like to hum along.\"",
-      "choices": {
-        "Follow the tracks deeper": "track_follow",
-        "Report back to HQ": "hedge_hub"
-      },
-      "rewards": {
-        "points": 10
-      }
+        "text": "Basil leads Archer through a corridor of hedges, pawprints etched in dew. \"Deliberate spacing—whoever made them wanted to be noticed or not noticed at all. Suspicion has a certain melody, and I’d like to hum along.\"",
+        "choices": {
+            "Follow the tracks deeper": "track_follow",
+            "Report back to HQ": "hedge_hub"
+        },
+        "rewards": {
+            "points": 10
+        }
     },
-  
     "track_follow": {
-      "text": "The trail snakes between shrubs before abruptly ending near a mossy well. \"Tracks don’t vanish without reason. Did they leap away, or drop below? It’s almost too convenient—like a riddle beckoning me to solve it.\" A faint chitter echoes from within the well’s depths.",
-      "choices": {
-        "Peer into the old well": "old_well",
-        "Mark location and go back": "hedge_hub"
-      }
+        "text": "The trail snakes between shrubs before abruptly ending near a mossy well. \"Tracks don’t vanish without reason. Did they leap away, or drop below? It’s almost too convenient—like a riddle beckoning me to solve it.\" A faint chitter echoes from within the well’s depths.",
+        "choices": {
+            "Peer into the old well": "old_well",
+            "Mark location and go back": "hedge_hub"
+        }
     },
-  
     "old_well": {
-      "text": "Archer peers into the slick, mossy stones. Something stirs far below—perhaps a raccoon, or a curious squirrel. \"Climbing down could be brilliance or idiocy. Then again, sometimes they’re the same thing. Let’s see.\"",
-      "choices": {
-        "Attempt to climb down": "well_descent",
-        "Decide it’s too risky": "hedge_hub"
-      }
+        "text": "Archer peers into the slick, mossy stones. Something stirs far below—perhaps a raccoon, or a curious squirrel. \"Climbing down could be brilliance or idiocy. Then again, sometimes they’re the same thing. Let’s see.\"",
+        "choices": {
+            "Attempt to climb down": "well_descent",
+            "Decide it’s too risky": "hedge_hub"
+        }
     },
-  
     "well_descent": {
-      "text": "Claws scraping stone, Archer descends carefully. The chittering grows frantic. Halfway down, he spots a young squirrel clinging to a ledge. \"So it’s a squirrel infiltration. This little intruder seems terrified, though. I suppose I could be benevolent... or not.\"",
-      "choices": {
-        "Help the squirrel": "help_squirrel",
-        "Abandon it": "well_return"
-      },
-      "rewards": {
-        "points": 15
-      }
+        "text": "Claws scraping stone, Archer descends carefully. The chittering grows frantic. Halfway down, he spots a young squirrel clinging to a ledge. \"So it’s a squirrel infiltration. This little intruder seems terrified, though. I suppose I could be benevolent... or not.\"",
+        "choices": {
+            "Help the squirrel": "help_squirrel",
+            "Abandon it": "well_return"
+        },
+        "rewards": {
+            "points": 15
+        }
     },
-  
     "help_squirrel": {
-      "text": "Archer braces himself, offering a guiding paw. The squirrel clutches Archer’s fur, trembling with relief. Together they climb out. \"We meant no harm—just exploring!\" it squeaks. \"Curiosity is a disease we share. At least this one survived its bout.\"",
-      "choices": {
-        "Escort the squirrel to HQ": "squirrel_hq",
-        "Release it into the hedges": "well_return"
-      },
-      "rewards": {
-        "points": 20,
-        "items": ["Grateful Squirrel Ally"]
-      }
+        "text": "Archer braces himself, offering a guiding paw. The squirrel clutches Archer’s fur, trembling with relief. Together they climb out. \"We meant no harm—just exploring!\" it squeaks. \"Curiosity is a disease we share. At least this one survived its bout.\"",
+        "choices": {
+            "Escort the squirrel to HQ": "squirrel_hq",
+            "Release it into the hedges": "well_return"
+        },
+        "rewards": {
+            "points": 20,
+            "items": [
+                "Grateful Squirrel Ally"
+            ]
+        }
     },
-  
     "squirrel_hq": {
-      "text": "Basil scowls. \"A squirrel at HQ, are we hosting a festival?\" The jittery rodent explains its accidental infiltration. Tia scribbles notes, Henry remains silent. \"I might’ve earned a new ally—or a headache. Either way, progress is made.\"",
-      "choices": {
-        "Accept Hedgewatch thanks": "hedge_hub",
-        "Ask the squirrel about hidden stashes": "squirrel_stash"
-      }
+        "text": "Basil scowls. \"A squirrel at HQ, are we hosting a festival?\" The jittery rodent explains its accidental infiltration. Tia scribbles notes, Henry remains silent. \"I might’ve earned a new ally—or a headache. Either way, progress is made.\"",
+        "choices": {
+            "Accept Hedgewatch thanks": "hedge_hub",
+            "Ask the squirrel about hidden stashes": "squirrel_stash"
+        }
     },
-  
     "squirrel_stash": {
-      "text": "The squirrel fidgets. \"We keep small caches—acorns, random treasures. If you want, I’ll show you one.\" \"Treasure? A concept I quite enjoy. Let’s see if the squirrels’ definition aligns with mine.\"",
-      "choices": {
-        "Take the stash": "secret_stash",
-        "Politely decline": "hedge_hub"
-      }
+        "text": "The squirrel fidgets. \"We keep small caches—acorns, random treasures. If you want, I’ll show you one.\" \"Treasure? A concept I quite enjoy. Let’s see if the squirrels’ definition aligns with mine.\"",
+        "choices": {
+            "Take the stash": "secret_stash",
+            "Politely decline": "hedge_hub"
+        }
     },
-  
     "secret_stash": {
-      "text": "By a hollow log near the HQ perimeter, the squirrel uncovers shiny pebbles and a curious rune-marked medallion. \"Interesting. Runes often imply hidden powers—or just a human’s whimsy. Either way, I’m intrigued.\"",
-      "choices": {
-        "Claim the medallion": "stash_claim",
-        "Just grab a shiny pebble": "stash_pebble"
-      }
+        "text": "By a hollow log near the HQ perimeter, the squirrel uncovers shiny pebbles and a curious rune-marked medallion. \"Interesting. Runes often imply hidden powers—or just a human’s whimsy. Either way, I’m intrigued.\"",
+        "choices": {
+            "Claim the medallion": "stash_claim",
+            "Just grab a shiny pebble": "stash_pebble"
+        }
     },
-  
     "stash_claim": {
-      "text": "Archer lifts the runic medallion, feeling a mild warmth. \"Another mysterious trinket. Perhaps Bella or Storm E. Cloud would have thoughts—assuming I care to share. Knowledge is best hoarded, unless it amuses me to do otherwise.\"",
-      "choices": {
-        "Return to HQ": "hedge_hub"
-      },
-      "rewards": {
-        "points": 30,
-        "items": ["Runic Medallion"]
-      }
+        "text": "Archer lifts the runic medallion, feeling a mild warmth. \"Another mysterious trinket. Perhaps Bella or Storm E. Cloud would have thoughts—assuming I care to share. Knowledge is best hoarded, unless it amuses me to do otherwise.\"",
+        "choices": {
+            "Return to HQ": "hedge_hub"
+        },
+        "rewards": {
+            "points": 30,
+            "items": [
+                "Runic Medallion"
+            ]
+        }
     },
-  
     "stash_pebble": {
-      "text": "Archer selects a small glittering pebble, humming under the moonlight. \"A minor treasure, but a treasure nonetheless. Sometimes small curiosities yield the biggest tales—or the best conversation pieces at the dinner bowl.\"",
-      "choices": {
-        "Return to HQ": "hedge_hub"
-      },
-      "rewards": {
-        "points": 15,
-        "items": ["Glitter Pebble"]
-      }
+        "text": "Archer selects a small glittering pebble, humming under the moonlight. \"A minor treasure, but a treasure nonetheless. Sometimes small curiosities yield the biggest tales—or the best conversation pieces at the dinner bowl.\"",
+        "choices": {
+            "Return to HQ": "hedge_hub"
+        },
+        "rewards": {
+            "points": 15,
+            "items": [
+                "Glitter Pebble"
+            ]
+        }
     },
-  
     "well_return": {
-      "text": "Leaving the well behind—squirrel rescued or not—Archer senses possibility buzzing in the night air. \"Hedgewatch tasks rarely end in blandness. Let’s see what else stirs in these hedges.\"",
-      "choices": {
-        "Head back to HQ": "hedge_hub"
-      }
+        "text": "Leaving the well behind—squirrel rescued or not—Archer senses possibility buzzing in the night air. \"Hedgewatch tasks rarely end in blandness. Let’s see what else stirs in these hedges.\"",
+        "choices": {
+            "Head back to HQ": "hedge_hub"
+        }
     },
-  
     "tia_scribe": {
-      "text": "Tia’s quill hovers above a parchment. \"Archer, anything new for our records? We document Hedgewatch feats—and fiascos.\" \"She wants stories, and I have a million. Which shall I gift her today?\"",
-      "choices": {
-        "Share a recent story (Requires an item)": "tell_story_item",
-        "Ask about Hedgewatch history": "ask_history",
-        "Return to center": "hedge_hub"
-      }
+        "text": "Tia’s quill hovers above a parchment. \"Archer, anything new for our records? We document Hedgewatch feats—and fiascos.\" \"She wants stories, and I have a million. Which shall I gift her today?\"",
+        "choices": {
+            "Share a recent story (Requires an item)": "tell_story_item",
+            "Ask about Hedgewatch history": "ask_history",
+            "Return to center": "hedge_hub"
+        }
     },
-  
     "tell_story_item": {
-      "requirements": ["Mystic Amulet"],
-      "text": "Noticing the subtle glow of your Mystic Amulet, Tia’s eyes widen. \"That amulet... I hear it opens hidden truths. You must share your tale!\" \"Ah, an audience for my grandeur. Let’s indulge her—some truths, some flair.\"",
-      "choices": {
-        "Dramatically recount the amulet quest": "drama_recount",
-        "Downplay it humbly": "humble_recount"
-      }
+        "requirements": [
+            "Mystic Amulet"
+        ],
+        "text": "Noticing the subtle glow of your Mystic Amulet, Tia’s eyes widen. \"That amulet... I hear it opens hidden truths. You must share your tale!\" \"Ah, an audience for my grandeur. Let’s indulge her—some truths, some flair.\"",
+        "choices": {
+            "Dramatically recount the amulet quest": "drama_recount",
+            "Downplay it humbly": "humble_recount"
+        }
     },
-  
     "drama_recount": {
-      "text": "Archer spins a vivid story of cosmic runes and daring leaps. Tia’s quill dances across the page, enthralled. \"A performance well-received. I could get used to this formal record of my brilliance.\"",
-      "choices": {
-        "Accept Tia’s praises": "hedge_hub"
-      },
-      "rewards": {
-        "points": 15
-      }
+        "text": "Archer spins a vivid story of cosmic runes and daring leaps. Tia’s quill dances across the page, enthralled. \"A performance well-received. I could get used to this formal record of my brilliance.\"",
+        "choices": {
+            "Accept Tia’s praises": "hedge_hub"
+        },
+        "rewards": {
+            "points": 15
+        }
     },
-  
     "humble_recount": {
-      "text": "Archer glides through the events more softly, focusing on the curiosities rather than personal heroism. Tia smiles thoughtfully. \"True courage sometimes hides behind modesty,\" she remarks. \"An interesting perspective, though humility can be its own form of showboating.\"",
-      "choices": {
-        "Return to HQ": "hedge_hub"
-      },
-      "rewards": {
-        "points": 10
-      }
+        "text": "Archer glides through the events more softly, focusing on the curiosities rather than personal heroism. Tia smiles thoughtfully. \"True courage sometimes hides behind modesty,\" she remarks. \"An interesting perspective, though humility can be its own form of showboating.\"",
+        "choices": {
+            "Return to HQ": "hedge_hub"
+        },
+        "rewards": {
+            "points": 10
+        }
     },
-  
     "ask_history": {
-      "text": "Tia brightens, \"Hedgewatch started eons ago—Storm E. Cloud proposed we unify foxes, rabbits, cats for the Homestead’s defense. Bella lent wisdom, Basil the Fox added cunning. Over time, we built out these HQ posts. Now we stand watch across the hedges.\" \"A noble dream—though nobility is relative. I admire their effort, if nothing else.\"",
-      "choices": {
-        "Comment about Storm E. Cloud’s wisdom": "storm_wisdom",
-        "Nod politely": "hedge_hub"
-      },
-      "rewards": {
-        "points": 5
-      }
+        "text": "Tia brightens, \"Hedgewatch started eons ago—Storm E. Cloud proposed we unify foxes, rabbits, cats for the Homestead’s defense. Bella lent wisdom, Basil the Fox added cunning. Over time, we built out these HQ posts. Now we stand watch across the hedges.\" \"A noble dream—though nobility is relative. I admire their effort, if nothing else.\"",
+        "choices": {
+            "Comment about Storm E. Cloud’s wisdom": "storm_wisdom",
+            "Nod politely": "hedge_hub"
+        },
+        "rewards": {
+            "points": 5
+        }
     },
-  
     "storm_wisdom": {
-      "text": "Tia nods. \"Storm E. Cloud’s Zen grounding keeps us unified. He says, ‘A single watchful eye can blink, but many eyes never miss a thing.’\" \"He’s not wrong. Multiply watchers, multiply chances of success—or confusion. Either way, I applaud the strategy.\"",
-      "choices": {
-        "Return to HQ": "hedge_hub"
-      },
-      "rewards": {
-        "points": 5
-      }
+        "text": "Tia nods. \"Storm E. Cloud’s Zen grounding keeps us unified. He says, ‘A single watchful eye can blink, but many eyes never miss a thing.’\" \"He’s not wrong. Multiply watchers, multiply chances of success—or confusion. Either way, I applaud the strategy.\"",
+        "choices": {
+            "Return to HQ": "hedge_hub"
+        },
+        "rewards": {
+            "points": 5
+        }
     },
-  
     "henry_panther": {
-      "text": "Henry stands near a hedgerow, posture immaculate. \"Movement beyond the southern edge—could be nothing, could be everything.\" \"Henry, the stoic panther from a desert homestead. Vigilance incarnate. Is that calm or tension in his stance? Perhaps both.\"",
-      "choices": {
-        "Offer to patrol with Henry": "henry_patrol",
-        "Ask about his desert past": "henry_desert",
-        "Return to center": "hedge_hub"
-      },
-      "rewards": {
-        "points": 5
-      }
+        "text": "Henry stands near a hedgerow, posture immaculate. \"Movement beyond the southern edge—could be nothing, could be everything.\" \"Henry, the stoic panther from a desert homestead. Vigilance incarnate. Is that calm or tension in his stance? Perhaps both.\"",
+        "choices": {
+            "Offer to patrol with Henry": "henry_patrol",
+            "Ask about his desert past": "henry_desert",
+            "Return to center": "hedge_hub"
+        },
+        "rewards": {
+            "points": 5
+        }
     },
-  
     "henry_patrol": {
-      "text": "Archer and Henry slip along the southern hedges, moonlight scattering across dirt paths. Occasional scuffles hint at minor wildlife. Henry says softly, \"Not a witch’s familiar, but I keep the night safe. Shall we investigate further?\"",
-      "choices": {
-        "Check deeper shadows": "shadow_patrol",
-        "Wrap up patrol": "hedge_hub"
-      }
+        "text": "Archer and Henry slip along the southern hedges, moonlight scattering across dirt paths. Occasional scuffles hint at minor wildlife. Henry says softly, \"Not a witch’s familiar, but I keep the night safe. Shall we investigate further?\"",
+        "choices": {
+            "Check deeper shadows": "shadow_patrol",
+            "Wrap up patrol": "hedge_hub"
+        }
     },
-  
     "shadow_patrol": {
-      "text": "Pushing through brambles, you see only deer silhouettes darting away. \"A false alarm or a sign that real threats lurk deeper? Henry seems relieved. Me, I remain amused.\" Henry nods, \"Better safe than sorry.\"",
-      "choices": {
-        "Return to HQ": "hedge_hub"
-      },
-      "rewards": {
-        "points": 10
-      }
+        "text": "Pushing through brambles, you see only deer silhouettes darting away. \"A false alarm or a sign that real threats lurk deeper? Henry seems relieved. Me, I remain amused.\" Henry nods, \"Better safe than sorry.\"",
+        "choices": {
+            "Return to HQ": "hedge_hub"
+        },
+        "rewards": {
+            "points": 10
+        }
     },
-  
     "henry_desert": {
-      "text": "Henry’s voice lowers: \"Where I come from, nights freeze the unprepared. I kept goats and chickens from coyotes for years before finding Hedgewatch.\" \"So that’s Henry’s origin. A desert cat turned panther of the hedges—intriguing contrast. I see why he’s so stoic.\"",
-      "choices": {
-        "Thank him for sharing": "hedge_hub"
-      },
-      "rewards": {
-        "points": 5
-      }
+        "text": "Henry’s voice lowers: \"Where I come from, nights freeze the unprepared. I kept goats and chickens from coyotes for years before finding Hedgewatch.\" \"So that’s Henry’s origin. A desert cat turned panther of the hedges—intriguing contrast. I see why he’s so stoic.\"",
+        "choices": {
+            "Thank him for sharing": "hedge_hub"
+        },
+        "rewards": {
+            "points": 5
+        }
     },
-  
     "hedge_perimeter": {
-      "text": "Archer skirts the outer hedges, crickets weaving a gentle tune. The HQ glows softly behind him, a bastion of watchful souls. \"I might circle around for hidden routes—stealth appeals to me. Or rejoin the watchers and stir more conversation. Choices, choices.\"",
-      "choices": {
-        "Seek a hidden entrance to HQ": "secret_entrance",
-        "Head to a rumored Hedge Maze": "hedge_maze",
-        "Go back to the main gate": "hedge_hub"
-      },
-      "rewards": {
-        "points": 5
-      }
+        "text": "Archer skirts the outer hedges, crickets weaving a gentle tune. The HQ glows softly behind him, a bastion of watchful souls. \"I might circle around for hidden routes—stealth appeals to me. Or rejoin the watchers and stir more conversation. Choices, choices.\"",
+        "choices": {
+            "Seek a hidden entrance to HQ": "secret_entrance",
+            "Head to a rumored Hedge Maze": "hedge_maze",
+            "Go back to the main gate": "hedge_hub"
+        },
+        "rewards": {
+            "points": 5
+        }
     },
-  
     "secret_entrance": {
-      "text": "A curtain of vines hides a narrow passage into Hedgewatch HQ. \"Ah, a stealth corridor for watchers—or for me. Slipping inside might reveal secrets not meant for casual eyes.\"",
-      "choices": {
-        "Sneak in": "stealth_hall",
-        "Retreat safely": "hedge_hub"
-      }
+        "text": "A curtain of vines hides a narrow passage into Hedgewatch HQ. \"Ah, a stealth corridor for watchers—or for me. Slipping inside might reveal secrets not meant for casual eyes.\"",
+        "choices": {
+            "Sneak in": "stealth_hall",
+            "Retreat safely": "hedge_hub"
+        }
     },
-  
     "stealth_hall": {
-      "text": "Beyond the vines, Archer finds a dim corridor lined with basic supplies. A few Hedgewatch tokens gleam on a hook. \"An armory or storeroom, presumably. If I lifted a token, would they praise or punish me? I do love testing boundaries.\"",
-      "choices": {
-        "Take a Hedgewatch Token": "take_token",
-        "Respectfully leave": "hedge_hub"
-      }
+        "text": "Beyond the vines, Archer finds a dim corridor lined with basic supplies. A few Hedgewatch tokens gleam on a hook. \"An armory or storeroom, presumably. If I lifted a token, would they praise or punish me? I do love testing boundaries.\"",
+        "choices": {
+            "Take a Hedgewatch Token": "take_token",
+            "Respectfully leave": "hedge_hub"
+        }
     },
-  
     "take_token": {
-      "text": "A small metal badge engraved with crossed paw prints over a hedge. \"Official Hedgewatch property. Could open doors, could start rumors. But risk is half the fun.\"",
-      "choices": {
-        "Slip away quietly": "hedge_hub"
-      },
-      "rewards": {
-        "points": 5,
-        "items": ["Hedgewatch Token"]
-      }
+        "text": "A small metal badge engraved with crossed paw prints over a hedge. \"Official Hedgewatch property. Could open doors, could start rumors. But risk is half the fun.\"",
+        "choices": {
+            "Slip away quietly": "hedge_hub"
+        },
+        "rewards": {
+            "points": 5,
+            "items": [
+                "Hedgewatch Token"
+            ]
+        }
     },
-  
     "hedge_maze": {
-      "text": "Rumor speaks of a secret Hedge Maze near the perimeter. Archer navigates winding pathways of unruly shrubs. \"Who doesn’t love an easter egg or hidden riddle? Let’s see if my wits can unravel it without losing a whisker.\"",
-      "choices": {
-        "Navigate the twisting paths": "maze_navigate",
-        "Turn back before getting lost": "hedge_hub"
-      },
-      "rewards": {
-        "points": 5
-      }
+        "text": "Rumor speaks of a secret Hedge Maze near the perimeter. Archer navigates winding pathways of unruly shrubs. \"Who doesn’t love an easter egg or hidden riddle? Let’s see if my wits can unravel it without losing a whisker.\"",
+        "choices": {
+            "Navigate the twisting paths": "maze_navigate",
+            "Turn back before getting lost": "hedge_hub"
+        },
+        "rewards": {
+            "points": 5
+        }
     },
-  
     "maze_navigate": {
-      "text": "Twisting corridors lead Archer to a modest clearing. A single stone inscribed: 'In unity, we find strength. Hedgewatch forever.' \"A grand motto for communal watchers. Humorous, since I tend to watch from a vantage of me, myself, and I.\"",
-      "choices": {
-        "Search around the stone": "maze_center",
-        "Leave the maze": "hedge_hub"
-      }
+        "text": "Twisting corridors lead Archer to a modest clearing. A single stone inscribed: 'In unity, we find strength. Hedgewatch forever.' \"A grand motto for communal watchers. Humorous, since I tend to watch from a vantage of me, myself, and I.\"",
+        "choices": {
+            "Search around the stone": "maze_center",
+            "Leave the maze": "hedge_hub"
+        }
     },
-  
     "maze_center": {
-      "text": "Scraping aside moss, Archer finds a small hidden compartment. Inside, a scroll labeled 'Easter Egg Protocol' featuring doodles of Basil, Henry, Tia—even Bella. \"A private joke among watchers? I’ll call it a trophy of my exploration.\"",
-      "choices": {
-        "Claim the ‘Easter Egg’ scroll": "egg_claim",
-        "Respect their privacy": "hedge_hub"
-      }
+        "text": "Scraping aside moss, Archer finds a small hidden compartment. Inside, a scroll labeled 'Easter Egg Protocol' featuring doodles of Basil, Henry, Tia—even Bella. \"A private joke among watchers? I’ll call it a trophy of my exploration.\"",
+        "choices": {
+            "Claim the ‘Easter Egg’ scroll": "egg_claim",
+            "Respect their privacy": "hedge_hub"
+        }
     },
-  
     "egg_claim": {
-      "text": "Archer tucks away the whimsical scroll. \"A secret jest. Maybe one day I’ll show them, watch their reactions. Leverage or laughter—both amuse me. Worth it.\"",
-      "choices": {
-        "Return to HQ": "hedge_hub"
-      },
-      "rewards": {
-        "points": 20,
-        "items": ["Hedgewatch Easter Egg Scroll"]
-      }
+        "text": "Archer tucks away the whimsical scroll. \"A secret jest. Maybe one day I’ll show them, watch their reactions. Leverage or laughter—both amuse me. Worth it.\"",
+        "choices": {
+            "Return to HQ": "hedge_hub"
+        },
+        "rewards": {
+            "points": 20,
+            "items": [
+                "Hedgewatch Easter Egg Scroll"
+            ]
+        }
     },
-  
     "hedge_hub": {
-      "text": "Archer stands in the core of Hedgewatch HQ, lanterns dancing against the dusk. Watchers shuffle about, each playing a part in safeguarding the Homestead. \"An intricate machine of vigilance. I suppose I’m part of it, too, though I prefer to see myself as the cat among mice. Where next, indeed?\"",
-      "choices": {
-        "Speak to Basil again": "basil_briefing",
-        "Visit Tia the Scribe": "tia_scribe",
-        "Join Henry’s vigil": "henry_panther",
-        "Exit via the perimeter": "hedge_perimeter",
-        "Return to the coop": "coop_exit.json",
-        "Check the fence": "fence.json",
-        "Explore the garden": "garden.json",
-        "Head to the creek": "creek.json"
-      }
+        "text": "Archer stands in the core of Hedgewatch HQ, lanterns dancing against the dusk. Watchers shuffle about, each playing a part in safeguarding the Homestead. \"An intricate machine of vigilance. I suppose I’m part of it, too, though I prefer to see myself as the cat among mice. Where next, indeed?\"",
+        "choices": {
+            "Speak to Basil again": "basil_briefing",
+            "Visit Tia the Scribe": "tia_scribe",
+            "Join Henry’s vigil": "henry_panther",
+            "Exit via the perimeter": "hedge_perimeter",
+            "Return to the coop": "coop_exit.json",
+            "Check the fence": "fence.json",
+            "Explore the garden": "garden.json",
+            "Head to the creek": "creek.json"
+        }
     }
-  }
-  
+}
