@@ -1,7 +1,6 @@
 {
     "start": {
         "text": "The night wraps around you like a velvet cloak, the whisper of wind rustling through leaves your only companion. Archer the Younger stretches luxuriously, his sleek black fur shimmering faintly under the starlight. The world is alive with possibility, each scent and shadow a tantalizing invitation. The garden beckons with the promise of mysteries hidden in its depths. The chicken coop hums with the faint cluck of restless feathers and the glint of something shiny. The fence, tall and daring, offers a path to the unknown beyond. Where does the night call you, Archer? Where will your paws lead you first?",
-        "image" : "assets/image/intro.png",
         "choices": {
             "Explore the Garden": "garden.json",
             "Investigate the Chicken Coop": "chicken_coop.json",
