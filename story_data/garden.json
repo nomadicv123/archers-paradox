@@ -76,6 +76,7 @@
     },
     "press_amulet": {
         "text": "A deluge of visions floods Archer’s mind—moments of Homestead history, Bella’s vigilant watch, Storm E. Cloud quietly meditating in clover, Sunshine’s dawn crow. The amulet’s glow subsides, humming gently. Bella’s voice echoes: \"Use this gift wisely—it links you to every living thing.\"",
+        "image" : "assets/image/press_chest.jpeg",
         "choices": {
             "Return to the main path": "overgrown_hedges"
         },

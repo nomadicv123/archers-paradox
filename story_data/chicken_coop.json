@@ -1,227 +1,534 @@
 {
     "start": {
-        "text": "\"The coop resonates like a living heartbeat tonight, straw and feathers stirring the air with secrets. Soft clucks reverberate in the dim light, and my ears swivel at the faint glimmer of something hidden under a nest. Is curiosity leading me astray, or is caution just a roadblock to glory? Let’s find out.\"",
-        "image" : "assets/image/coop.png",
+        "text": "\"The coop seems alive tonight—soft clucks and glowing eyes shimmer in the darkness. Straw crackles beneath your paws as you approach, nose twitching at the scent of feathers and secrets. Archer’s tail flicks with anticipation. ‘Am I intruding on fowl territory, or are they intruding on mine? Let’s see who rules this roost tonight.’\"",
         "choices": {
-            "Check for shiny objects": "shiny_objects",
-            "Leave the chickens alone": "coop_exit"
-        }
-    },
-    "shiny_objects": {
-        "text": "Archer’s keen eyes catch the gleam of a silver spoon, half-buried in the straw. Another flicker draws him closer—an egg glowing with an eerie, otherworldly light. \"Treasures or traps? My whiskers tingle. Questions swirl like feathers on a midnight breeze.\"",
-        "choices": {
-            "Take the spoon": "spoon_taken",
-            "Inspect the glowing egg": "glowing_egg",
-            "Ignore it all": "ignore_shiny"
+            "Snoop around the nesting boxes": "nesting_boxes",
+            "Approach the Hentourage (Penelope & friends)": "hentourage_intro",
+            "Check for anything shiny under the roost bars": "check_shiny",
+            "Climb to the rafters for a better view": "climb_rafters"
         },
         "rewards": {
             "points": 5
         }
     },
-    "spoon_taken": {
-        "text": "With a swift, practiced motion, Archer snatches the spoon. Its ornate surface shimmers even in the coop’s half-light. \"Beautiful, isn’t it? Though beauty often cloaks a deeper puzzle. Still, I enjoy a good puzzle—especially one that’s mine now.\"",
+
+    "nesting_boxes": {
+        "text": "Archer peeks into a row of nesting boxes. Feathers, straw, and the faint warmth of recently occupied nests greet his senses. \"The perfect place for secrets—chickens do love stashing shiny trinkets. I might find a bauble… or a beakful of trouble.\"",
         "choices": {
-            "Inspect the glowing egg": "glowing_egg",
-            "Leave the coop": "coop_exit"
+            "Search carefully for hidden items": "search_nests",
+            "Tease the nesting hens (Archer-style)": "tease_hens",
+            "Step back quietly": "coop_hub"
         },
         "rewards": {
-            "points": 10,
-            "items": [
-                "Silver Spoon"
-            ]
+            "points": 5
         }
     },
-    "ignore_shiny": {
-        "text": "Archer flicks his tail in disinterest, stepping back from the coop’s mysteries. \"Sometimes refusing temptation is its own challenge. The night is vast, and so am I. Let the coop keep its secrets—my curiosity has better places to roam.\"",
+
+    "search_nests": {
+        "text": "With delicate precision, Archer rummages through straw and feathers. A soft clucking protests from a corner, but he ignores it—curiosity rules. Suddenly, his paw strikes something cool and metallic: a tiny, broken **Egg Key** with runic etchings on its surface. \"A puzzle piece, perhaps? My whiskers tingle at the possibilities.\"",
         "choices": {
-            "Explore the garden": "garden.json",
-            "Climb the fence": "fence.json"
+            "Take the Egg Key piece": "egg_key_taken",
+            "Leave it—could be cursed": "nest_cursed",
+            "Return to coop center": "coop_hub"
         },
-        "consequences": {
-            "points": -5,
-            "items_lost": []
+        "rewards": {
+            "points": 10
         }
     },
-    "glowing_egg": {
-        "text": "The egg throbs with a gentle radiance, its shell cracking under Archer’s probing paw. A tiny, luminous chick emerges, blinking into the night. \"Life pulsing with a cosmic glow—an omen of something bigger, or just a freakish wonder? Either way, I’m intrigued.\"",
+
+    "egg_key_taken": {
+        "text": "Archer snags the **Broken Egg Key**, tucking it into his fur. \"A fragment of something bigger. I do enjoy collecting puzzle pieces—like trophies of my brilliance.\"",
         "choices": {
-            "Follow the chick": "follow_chick",
-            "Leave the coop immediately": "leave_immediately",
-            "Try to catch the chick": "catch_chick"
+            "Return to coop center": "coop_hub"
         },
         "rewards": {
             "points": 15,
             "items": [
-                "Glowing Fragment"
+                "Broken Egg Key"
             ]
         }
     },
-    "leave_immediately": {
-        "text": "Archer decides not to tangle with cosmic eggs this evening, slipping out of the coop without a backward glance. \"Mysteries remain, but so does my desire for an untroubled night. Perhaps I’ll regret walking away—or perhaps not.\"",
+
+    "nest_cursed": {
+        "text": "Archer flattens his ears. \"I’m all for shiny things, but that key has an aura of potential drama I’m not in the mood for—tonight, at least.\" He places it back under the straw, ignoring the faint hum it emits.",
         "choices": {
-            "Head back to the homestead": "coop_exit",
-            "Try the garden instead": "garden.json"
-        }
-    },
-    "catch_chick": {
-        "text": "Archer lunges, but the glowing chick is faster, vanishing into a moonlit shadow. A strange ache settles in the empty air it leaves behind. \"Some chances slip through our claws by design. Or maybe I was half-hearted? Hmm… either way, the coop’s mysteries feel heavier now.\"",
-        "choices": {
-            "Explore the garden": "garden.json",
-            "Climb the fence": "fence.json"
+            "Return to coop center": "coop_hub"
         },
         "consequences": {
-            "points": -10,
-            "items_lost": [
-                "Silver Spoon"
-            ]
+            "points": -5
         }
     },
-    "follow_chick": {
-        "text": "Archer trails the chick into the woods, its radiant fluff guiding him like a living lantern. Symbols carved into ancient bark glow faintly in response, each step tingling with possibility. \"A chick leading me into runic shadows—absurd, yet delightful. My fur prickles in anticipation.\"",
+
+    "tease_hens": {
+        "text": "With a mischievous glint in his eyes, Archer lightly bats at a hen’s tail feathers. The resulting cluck-storm is magnificent. \"A little chaos to spice up the night—though I might have to dodge some very angry beaks…\"",
         "choices": {
-            "Examine the pedestal": "examine_pedestal",
-            "Stay back and observe": "observe_chick",
-            "Leave the area": "retreat_woods"
+            "Grin and run away": "coop_hub",
+            "Stand your ground (Archer’s bravado)": "hen_standoff"
         },
         "rewards": {
-            "points": 20,
-            "items": []
+            "points": 5
         }
     },
-    "observe_chick": {
-        "text": "Archer hides beneath a fern, watching the chick circle atop a weathered stone pedestal. Each chirp brightens the carved runes glowing around it. \"These woods breathe with ancient secrets. The chick? Just a catalyst, or the star of this show? My instincts say watch closely—then decide.\"",
+
+    "hen_standoff": {
+        "text": "Penelope, the bratty and competitive hen, puffs up. \"Archer, you furball! Leave my flock alone!\" Archer flicks his tail calmly. \"Your clucks amuse me, Penelope, but do strut carefully—I own the night.\" Tension crackles.",
         "choices": {
-            "Approach the pedestal": "examine_pedestal",
-            "Retreat into the shadows": "retreat_woods"
+            "Diffuse tension with a witty remark": "diffuse_penelope",
+            "Push your luck and hiss menacingly": "hiss_penelope"
         },
         "rewards": {
-            "points": 5,
-            "items": []
+            "points": 5
         }
     },
-    "examine_pedestal": {
-        "text": "Archer steps nearer, eyes tracing runes that rearrange like constellations at his approach. A low hum resonates in his chest. \"The land speaks in symbols older than memory. It sees me as I see it—two enigmas meeting halfway.\"",
+
+    "diffuse_penelope": {
+        "text": "Archer leans in, voice dripping with mock sincerity. \"Penelope, my dear, you’re the star of this coop. I’m merely a curious spectator of your… regal presence.\" Penelope hesitates, flattered despite herself. \"Well… I am quite magnificent, aren’t I?\" The tension wanes.",
         "choices": {
-            "Touch the symbols": "touch_symbols",
-            "Step away": "step_away"
+            "Return to coop center": "coop_hub"
+        },
+        "rewards": {
+            "points": 10
+        }
+    },
+
+    "hiss_penelope": {
+        "text": "Archer arches his spine, letting out a hiss that resonates through the straw. Penelope and her hens flap away in alarm. \"Chickens—so easily ruffled. I relish a bit of drama before bedtime.\"",
+        "choices": {
+            "Saunter off smugly": "coop_hub"
+        },
+        "consequences": {
+            "points": -5
+        }
+    },
+
+    "hentourage_intro": {
+        "text": "Archer approaches the Hentourage: Penelope, Shadow, Mystik, Hybrid, and Secret. They’re in mid-cluck discussion about feed rations and roost preferences. \"Ah, the council of clucks—how delightfully mundane. Perhaps I can spice things up.\"",
+        "choices": {
+            "Inquire about the Hentourage’s secret stash": "secret_stash_inquiry",
+            "Flatter them for intel": "flatter_hentourage",
+            "Challenge Penelope to a brag-off": "hen_standoff"
+        },
+        "rewards": {
+            "points": 5
+        }
+    },
+
+    "secret_stash_inquiry": {
+        "text": "Archer clears his throat. \"Ladies, rumor has it you keep a shiny stash—silver spoons, lost earrings, all sorts of amusements. Care to share?\" Penelope narrows her eyes. \"Why should we?\" Shadow adds, \"We might show you if you prove your loyalty… or cunning.\"",
+        "choices": {
+            "Offer to bring them a tasty treat in exchange": "barter_for_stash",
+            "Insist on them showing you now": "demand_stash"
+        },
+        "rewards": {
+            "points": 5
+        }
+    },
+
+    "barter_for_stash": {
+        "text": "Archer purrs, \"Bring me some premium cat treats—er, I mean, *chicken feed*—and I’ll consider your request,\" Penelope counters. Archer sighs internally but sees potential. \"A small transaction for bigger gain.\"",
+        "choices": {
+            "Go find a treat to barter": "find_chicken_feed",
+            "Try to distract them with a cunning ruse": "cunning_ruse"
+        },
+        "rewards": {
+            "points": 10
+        }
+    },
+
+    "find_chicken_feed": {
+        "text": "Archer trots around the coop’s perimeter, sniffing for a sack of feed. Spotting a small burlap bag, he reads the label: *‘Deluxe Chicken Crumble—Organic‘.* \"Huh, the hens have a refined palate. Let’s see if this impresses them.\"",
+        "choices": {
+            "Grab the feed bag": "feed_acquired",
+            "Puncture the bag in mischief": "puncture_feed_bag"
+        },
+        "rewards": {
+            "points": 5
+        }
+    },
+
+    "feed_acquired": {
+        "text": "Archer carries the feed bag back, tail high. \"Now to trade for a peek at their stash. My cunning is second only to my fabulousness.\"",
+        "choices": {
+            "Return to the Hentourage with feed": "trade_for_stash"
         },
         "rewards": {
             "points": 10,
             "items": [
-                "Ancient Inscription"
+                "Deluxe Chicken Feed"
             ]
         }
     },
-    "step_away": {
-        "text": "A flicker of caution stills Archer’s paw. The pedestal glimmers, almost disappointed. \"Even I must sometimes heed a warning. These secrets won’t vanish. The forest hums with potential, but so do I. Another time, perhaps.\"",
+
+    "puncture_feed_bag": {
+        "text": "Feeling a streak of mischief, Archer claws a small hole. Feed spills quietly to the ground, a trail leading away. \"I do love chaos, but I might regret not having the feed to barter… oh well.\"",
         "choices": {
-            "Return to the coop": "coop_exit",
-            "Continue deeper into the woods": "retreat_woods"
-        }
-    },
-    "touch_symbols": {
-        "text": "Archer brushes the glowing runes with a deliberate paw. A flood of visions cascade through his mind: the Homestead’s storied past and glimpses of uncertain futures. \"Power reverberates through me, binding me to this land. Am I more than I was, or simply more aware?\"",
-        "choices": {
-            "Return to the coop": "coop_exit",
-            "Explore further": "garden.json"
-        },
-        "rewards": {
-            "points": 25,
-            "items": [
-                "Vision Shard"
-            ]
-        }
-    },
-    "retreat_woods": {
-        "text": "The forest exhales as Archer withdraws, the symbols and the mysterious chick fading into darkness. Relief and regret tangle in his chest. \"One step back preserves my sense of self—yet curiosity bites. Who knows what I left unclaimed in those shadows?\"",
-        "choices": {
-            "Step through the gateway": "mystic_gateway",
-            "Turn back toward the homestead": "coop_exit"
+            "Abandon the idea of bartering": "coop_hub"
         },
         "consequences": {
-            "points": -5,
-            "items_lost": []
+            "points": -5
         }
     },
-    "mystic_gateway": {
-        "text": "Archer steps beneath an arch of shimmering runes, reality shifting into crystalline pathways threaded with musical whispers. A figure of living light beckons. \"Seeker, you stand at the confluence of knowledge and courage. Choose well.\" \"Ah, a cosmic challenge. My favorite kind.\"",
+
+    "trade_for_stash": {
+        "text": "Penelope eyes the bag greedily. \"Deluxe? Impressive. We might be willing to share a clue to our stash… if you vow not to tell Basil or Bella.\" Archer smirks. \"I vow nothing, but I’ll indulge your secrecy for now.\"",
         "choices": {
-            "Accept a new challenge": "light_challenge",
-            "Return to the homestead": "coop_exit"
+            "Swear to keep the secret (Dishonestly or not)": "stash_reveal",
+            "Refuse to swear and walk away": "coop_hub"
+        },
+        "requirements": [
+            "Deluxe Chicken Feed"
+        ],
+        "rewards": {
+            "points": 15
+        }
+    },
+
+    "stash_reveal": {
+        "text": "Shadow and Mystik lead Archer to a loose board behind the nesting boxes. Inside, glinting odds and ends sparkle in the moonlight: broken jewelry, shiny bottle caps, and—aha—a suspiciously elaborate **Feather Charm**. \"Now that’s interesting…\"",
+        "choices": {
+            "Examine the Feather Charm": "examine_feather_charm",
+            "Swipe a shiny bottle cap instead": "bottle_cap",
+            "Thank them and leave": "coop_hub"
         },
         "rewards": {
-            "points": 30,
-            "items": [
-                "Crystal Key"
-            ]
+            "points": 20
         }
     },
-    "light_challenge": {
-        "text": "The luminous being unveils a puzzle etched into the radiant floor, each step demanding Archer interpret runes once seen on the pedestal. \"A labyrinth of symbols and sound—my curiosity purrs at the thought. Let’s see how far brilliance can carry me.\"",
+
+    "examine_feather_charm": {
+        "text": "Archer lifts the **Feather Charm**. Its soft glow ripples along the edges, sending a tickle of energy through his whiskers. \"This might pair nicely with my unstoppable flair. Or it could open a portal to poultry purgatory—who knows?\"",
         "choices": {
-            "Open the chest": "open_chest",
-            "Step away": "retreat_woods"
+            "Claim the Feather Charm": "feather_charm_taken",
+            "Leave it in the stash": "coop_hub"
         },
         "rewards": {
-            "points": 50,
-            "items": []
+            "points": 10
         }
     },
-    "open_chest": {
-        "text": "A careful nudge opens the chest. Inside rests a faintly glowing amulet, pulsing like a second heartbeat. \"So, I’m 'worthy.' Isn’t that grand? The rush of warmth suggests deeper truths. Or maybe just cosmic flattery. Either way, it’s mine now.\"",
+
+    "feather_charm_taken": {
+        "text": "Archer tucks the **Feather Charm** into his fur. Penelope clucks, \"Don’t blame us if it does something weird…\" Archer purrs. \"Weird? That’s my specialty.\"",
         "choices": {
-            "Return to the homestead": "mystic_amulet"
-        },
-        "rewards": {
-            "points": 100,
-            "items": [
-                "Mystic Amulet"
-            ]
-        }
-    },
-    "mystic_amulet": {
-        "text": "The amulet around Archer’s neck glows softly, stirring echoes of ancient symbols on every surface. The figure of light speaks: \"You carry within you both wisdom and audacity. This amulet shall guide you to hidden truths across the Homestead. Will you keep seeking, or return to savor what you have?\"",
-        "choices": {
-            "Seek further mysteries": "hidden_path",
-            "Return to the homestead": "coop_exit"
+            "Return to coop center": "coop_hub"
         },
         "rewards": {
             "points": 20,
-            "items": []
+            "items": [
+                "Feather Charm"
+            ]
         }
     },
-    "hidden_path": {
-        "text": "The amulet’s glow reveals a secret door in the air itself. Beyond lies a corridor etched with shifting runes. \"Even the Homestead can hide entire worlds, it seems. My whiskers vibrate with the promise of new revelations—time to investigate.\"",
+
+    "bottle_cap": {
+        "text": "Archer picks up a shiny bottle cap, noticing a faint chicken scratch etched on the inside. \"Limited edition lemon seltzer? Adorable. Not as mystical as a charm, but still a conversation piece.\"",
         "choices": {
-            "Examine the map": "map_discovery",
-            "Step away from the door": "coop_exit"
+            "Keep the cap": "bottle_cap_kept",
+            "Toss it aside and leave": "coop_hub"
+        },
+        "rewards": {
+            "points": 5
         }
     },
-    "map_discovery": {
-        "text": "Symbols swirl across a stone floor map, forming half-legible words. The Silver Spoon hums softly, and Archer places it on the map. A route labeled 'The Forgotten Garden' flares with light. \"Ah, an invitation to another secret. Exactly what I crave.\"",
+
+    "bottle_cap_kept": {
+        "text": "Archer pockets the bottle cap with a smirk. \"Small trophies can tell big tales—especially at the dinner bowl.\"",
         "choices": {
-            "Follow the map to the garden": "forgotten_garden"
+            "Return to coop center": "coop_hub"
+        },
+        "rewards": {
+            "points": 10,
+            "items": [
+                "Bottle Cap"
+            ]
         }
     },
-    "forgotten_garden": {
-        "text": "Guided by arcane lines, Archer steps into the Forgotten Garden—a place brimming with luminous vines, humming blossoms, and a hush of ancient magic. \"The next chapter unfolds, teeming with possibilities. I almost pity those who lack the will to tread such paths.\"",
+
+    "cunning_ruse": {
+        "text": "Archer decides to feign an urgent message: \"Bella is summoning all chickens for an emergency Homestead meeting—something about extra feed rations!\" Distracted, the Hentourage rushes off, leaving their stash momentarily unguarded.",
         "choices": {
-            "Begin the Garden Exploration": "garden_path"
+            "Sneak into the stash alone": "stash_reveal",
+            "Feel guilty and step back": "coop_hub"
+        },
+        "rewards": {
+            "points": 5
         }
     },
-    "garden_path": {
-        "text": "Vines form archways overhead, pulsing with an inner glow. Archer moves forward, each pawstep slow and sure amid the blooming shadows. \"A new realm to shape with my presence… or to shape me? Let’s see which of us yields first.\"",
+
+    "demand_stash": {
+        "text": "Archer, in full regal mode, insists the hens show him the stash. Penelope bristles, \"Who do you think you are?\" Archer flicks his tail, \"Your future overlord, obviously. Now, reveal.\" The hens glare, but Shadow eventually nods. \"Fine, follow us…\"",
         "choices": {
-            "Return to the coop": "intro.json"
+            "Follow for the stash reveal": "stash_reveal",
+            "Mock them and walk away": "coop_hub"
+        },
+        "consequences": {
+            "points": -5
         }
     },
+
+    "flatter_hentourage": {
+        "text": "\"Oh, Penelope, your plumage is especially radiant tonight. Shadow, your name suits your graceful presence in the moonlight. Mystik, your wingtips practically glow. Hybrid and Secret, you must be the bravest of the brood.\" They cluck in delighted confusion. \"Archer, we never knew you could compliment so… lavishly.\"",
+        "choices": {
+            "Ask for coop gossip": "coop_gossip",
+            "Revert to teasing (Archer’s impulse)": "tease_hens"
+        },
+        "rewards": {
+            "points": 10
+        }
+    },
+
+    "coop_gossip": {
+        "text": "Mystik clucks softly, \"Rumor says a strange golden egg might appear during a blue moon—one that grants boons to whoever claims it.\" Shadow adds, \"We also hear Basil the Fox lurks nearby, scheming for it.\" Archer’s whiskers twitch. \"A golden egg? My kind of treasure.\"",
+        "choices": {
+            "Investigate this golden egg rumor": "golden_egg_rumor",
+            "Tuck the info away for later": "coop_hub"
+        },
+        "rewards": {
+            "points": 10
+        }
+    },
+
+    "golden_egg_rumor": {
+        "text": "Archer weighs the idea of a **Golden Egg** that grants boons. \"My arrogance says it’s rightfully mine. My curiosity demands I see if it’s real. Let’s test fate, shall we?\"",
+        "choices": {
+            "Head into the moonlit yard to search": "moonlit_yard_search",
+            "Ask for more details from the Hentourage": "more_egg_details"
+        }
+    },
+
+    "more_egg_details": {
+        "text": "\"They say it glows under a blue moon, but it’s unpredictable. Some nights it appears near the coop, other nights by the fence or creek. No one’s ever claimed it for sure.\" Archer exhales, \"Elusive. I do enjoy a chase.\"",
+        "choices": {
+            "Begin the search anyway": "moonlit_yard_search",
+            "Return to coop center": "coop_hub"
+        }
+    },
+
+    "moonlit_yard_search": {
+        "text": "Pawsteps lead Archer outside the coop into the moonlit yard. Crickets hum, and a faint shimmer dances near the compost bin. \"Golden Egg or raccoon trick? Either way, I’m intrigued.\"",
+        "choices": {
+            "Investigate the shimmer": "compost_shimmer",
+            "Circle the coop perimeter": "circle_perimeter",
+            "Head back into the coop": "coop_hub"
+        },
+        "rewards": {
+            "points": 5
+        }
+    },
+
+    "compost_shimmer": {
+        "text": "Archer edges closer to the compost bin’s glow. A small, golden sphere lies half-buried in shredded leaves. He nudges it—just a reflective gold foil leftover from some human candy. \"Hmph. A trick of the night, not the real golden egg. But I’ll keep searching.\"",
+        "choices": {
+            "Keep the gold foil for fun": "gold_foil_kept",
+            "Toss it aside and move on": "moonlit_yard_search"
+        },
+        "rewards": {
+            "points": 5
+        }
+    },
+
+    "gold_foil_kept": {
+        "text": "Archer grabs the gold foil. \"Even illusions amuse me. Maybe I can fool a gullible critter later.\"",
+        "choices": {
+            "Continue searching the yard": "moonlit_yard_search"
+        },
+        "rewards": {
+            "points": 10,
+            "items": [
+                "Gold Foil"
+            ]
+        }
+    },
+
+    "circle_perimeter": {
+        "text": "Archer skirts around the coop, eyes sharp for any flicker of golden light. In the darkness, a familiar bush rustles—Basil the Fox emerges, carrying something gleaming. \"So the fox hunts for eggs too… should I confront him or watch from afar?\"",
+        "choices": {
+            "Confront Basil about the golden egg": "basil_confront",
+            "Hide and observe Basil quietly": "basil_spy",
+            "Sneak back to the coop": "coop_hub"
+        },
+        "rewards": {
+            "points": 5
+        }
+    },
+
+    "basil_confront": {
+        "text": "Archer steps forward, tail high. \"Basil, dear fox, moonlit egg hunts tonight? Are we competing?\" Basil’s eyes narrow. \"Competition or collaboration, cat? Depends on your mood.\"",
+        "choices": {
+            "Suggest teaming up": "team_with_basil",
+            "Challenge Basil to a hunt-off": "hunt_off"
+        },
+        "rewards": {
+            "points": 5
+        }
+    },
+
+    "basil_spy": {
+        "text": "Archer crouches in the shadows, watching Basil bury something. The fox mutters, \"Not the real golden egg… worthless trinket.\" Then he slinks away. Once Basil’s gone, Archer checks the spot—just a simple gold-painted stone. A neat decoy indeed.",
+        "choices": {
+            "Retrieve the painted stone": "painted_stone",
+            "Return to coop center": "coop_hub"
+        },
+        "rewards": {
+            "points": 5
+        }
+    },
+
+    "team_with_basil": {
+        "text": "Archer proposes a truce: \"Two cunning predators might stand a better chance at this golden egg. We’ll split the reward… maybe.\" Basil smirks, \"Fine. For tonight, we’re allies—assuming you don’t backstab me, cat.\" Archer purrs, \"Me? Never. I only front-stab.\"",
+        "choices": {
+            "Begin joint search around the coop": "joint_search_coop"
+        },
+        "rewards": {
+            "points": 10
+        }
+    },
+
+    "hunt_off": {
+        "text": "Archer flicks his tail imperiously: \"Competition is more fun. Winner claims the golden egg first. Loser gets scorn. Agreed?\" Basil’s grin reveals sharp teeth. \"I never say no to a challenge. Let’s see who’s faster, cat.\"",
+        "choices": {
+            "Race around the coop yard searching": "moonlit_yard_search"
+        },
+        "rewards": {
+            "points": 5
+        }
+    },
+
+    "joint_search_coop": {
+        "text": "Side by side, Basil and Archer circle the coop, scanning each nook. Basil sniffs, Archer listens. They find nothing golden, but Basil snags an abandoned silver locket. \"Not our prize, but a nice bonus.\" Archer shrugs, \"We keep looking.\"",
+        "choices": {
+            "Return inside the coop": "coop_hub",
+            "Expand search to the fence": "fence.json"
+        },
+        "rewards": {
+            "points": 10,
+            "items": [
+                "Unlikely Fox Ally"
+            ]
+        }
+    },
+
+    "painted_stone": {
+        "text": "Archer digs up the gold-painted stone. \"Cute decoy—someone’s been toying with all the treasure hunters around here. I’ll keep it as a reminder that illusions abound.\"",
+        "choices": {
+            "Return inside the coop": "coop_hub",
+            "Head to the fence with curiosity": "fence.json"
+        },
+        "rewards": {
+            "points": 10,
+            "items": [
+                "Painted Stone"
+            ]
+        }
+    },
+
+    "check_shiny": {
+        "text": "Archer peers under the roost bars, where droppings and feathers mix in a less-than-glamorous display. Yet a faint sparkle catches his eye. \"Fortune favors the bold (and the slightly gross).\"",
+        "choices": {
+            "Brave the mess to investigate": "mess_investigation",
+            "Decide it's not worth your dignity": "coop_hub"
+        },
+        "rewards": {
+            "points": 5
+        }
+    },
+
+    "mess_investigation": {
+        "text": "Gingerly, Archer sifts through the straw. He discovers a small **Glass Bead**, possibly from a broken necklace. It glitters in the dim light like a miniature moon. \"A minor treasure, but you never know what power it holds—if any.\"",
+        "choices": {
+            "Claim the Glass Bead": "bead_taken",
+            "Drop it in distaste": "coop_hub"
+        },
+        "rewards": {
+            "points": 10
+        }
+    },
+
+    "bead_taken": {
+        "text": "Archer pockets the **Glass Bead**. \"One day I’ll have a story for every trinket I collect—even the smallest gem can outshine the blandness of lesser souls.\"",
+        "choices": {
+            "Return to coop center": "coop_hub"
+        },
+        "rewards": {
+            "points": 15,
+            "items": [
+                "Glass Bead"
+            ]
+        }
+    },
+
+    "climb_rafters": {
+        "text": "Archer leaps gracefully onto a wooden beam overhead. The warm air near the rafters carries quiet coos and the smell of dust. \"An aerial perspective—sometimes I find vantage, sometimes I find… trouble.\" A deeper shadow in the corner draws his gaze.",
+        "choices": {
+            "Investigate the shadowy corner": "shadowy_corner",
+            "Nap in the cozy rafters": "rafters_nap",
+            "Leap down to the coop floor": "coop_hub"
+        },
+        "rewards": {
+            "points": 5
+        }
+    },
+
+    "shadowy_corner": {
+        "text": "In the dark corner, Archer spots a small ledge carved into the wood. A folded scrap of parchment rests there, sealed with an unrecognizable symbol. \"Secret messages in the chicken coop? My curiosity is thoroughly piqued.\"",
+        "choices": {
+            "Open the parchment": "open_parchment",
+            "Leave it be": "coop_hub"
+        },
+        "rewards": {
+            "points": 10
+        }
+    },
+
+    "open_parchment": {
+        "text": "Archer carefully breaks the seal. Strange runes scrawl across the page, referencing a ‘Moonlit Ascension’ and a single cryptic line: ‘When feathers shimmer, doors shall open.’ \"Feathers shimmering… perhaps that new Feather Charm might come into play?\" Archer’s mind brims with possibilities.",
+        "choices": {
+            "Keep the parchment": "parchment_kept",
+            "Drop it back in the corner": "coop_hub"
+        }
+    },
+
+    "parchment_kept": {
+        "text": "Archer tucks away the cryptic parchment. \"Knowledge is power—even if I’m not sure how to wield it yet.\"",
+        "choices": {
+            "Return to coop center": "coop_hub"
+        },
+        "rewards": {
+            "points": 15,
+            "items": [
+                "Cryptic Parchment"
+            ]
+        }
+    },
+
+    "rafters_nap": {
+        "text": "Archer curls up on a warm beam. \"A quick doze above the mortals—my rightful vantage point.\" Time drifts as he naps, dreaming of shimmering eggs, cosmic feathers, and a regal cat enthroned on a pile of shiny treasures. \"Ah, perfection.\"",
+        "choices": {
+            "Wake up refreshed and continue": "coop_hub"
+        },
+        "rewards": {
+            "points": 20
+        }
+    },
+
+    "coop_hub": {
+        "text": "Archer pauses in the coop’s center, straw swirling at his paws. \"I’ve sniffed out secrets, teased feathery foes, and pocketed curiosities. The night is far from over—shall I roam further or linger in this nest of possibilities?\"",
+        "choices": {
+            "Investigate the nesting boxes again": "nesting_boxes",
+            "Approach the Hentourage again": "hentourage_intro",
+            "Check for shiny items under roost bars again": "check_shiny",
+            "Climb the rafters again": "climb_rafters",
+            "Exit the coop to explore the Homestead": "coop_exit"
+        }
+    },
+
     "coop_exit": {
-        "text": "Archer slips out of the coop, tail swishing in satisfaction. The chickens quiet down, and moonlit pathways stretch before him, humming with the promise of night. \"I leave this den of clucks behind, but the realm beyond is no less full of riddles. Shall I solve them or let them remain mysteries for my amusement?\"",
-        "image": "assets/image/coop_exit.png",
+        "text": "Satisfied with your escapade in the coop—or maybe just itching for more adventures—Archer slips through the doorway. \"The night beckons with countless wonders: gardens, fences, hedges… and perhaps a real golden egg, if fortune smiles. I’ll find it, eventually.\"",
         "choices": {
-            "Head to the garden.": "garden.json",
-            "Climb the fence to explore the woods.": "fence.json",
-            "Investigate the whispers from Hedgewatch.": "hedgewatch.json"
+            "Head to the Garden": "garden.json",
+            "Climb the Fence to explore further": "fence.json",
+            "Investigate Hedgewatch HQ": "hedgewatch.json",
+            "Venture down by the Creek": "creek.json",
+            "Return to Intro if you wish": "intro.json"
         },
         "rewards": {
             "points": 10
