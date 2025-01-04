@@ -32,6 +32,7 @@
     },
     "dismiss_bella": {
         "text": "Archer flicks his tail dismissively. \"Humility? Pfft. My very presence is a gift to these mortals.\" He turns from the blossoms, a rebellious thrill coursing through his whiskers. \"Let them dance for me if they want to be noticed.\" A swirl of moonlit dust teases his nose, threatening a sneeze.",
+        "image" : "assets/image/sneeze.jpeg",
         "choices": {
             "Sneeze and move on (Head to Overgrown Hedges)": "overgrown_hedges",
             "Spot something rustling behind the rosebush": "rustling_rosebush"
@@ -42,6 +43,7 @@
     },
     "embrace_humility": {
         "text": "\"Perhaps I can shed a fragment of my unquestionable magnificence—momentarily, of course.\" The garden exhales in gratitude. A soft glow emanates from the ground—a tiny silver amulet, half-buried. Sunshine crows again, \"A token for those who respect the land.\"",
+        "image" : "assets/image/fragment.jpeg",
         "choices": {
             "Take the amulet graciously": "take_amulet",
             "Decide it’s not worth the trouble": "ignore_amulet"
@@ -52,6 +54,7 @@
     },
     "ignore_amulet": {
         "text": "Archer arches a regal brow. \"A fascinating bauble, but I’m not one to be weighed down by trinkets.\" He turns away, yet a pang of regret tugs at him—did he abandon something truly special?",
+        "image" : "assets/image/bauble.jpeg",
         "choices": {
             "Continue deeper into the garden": "overgrown_hedges",
             "Look back at the amulet": "take_amulet"
@@ -59,6 +62,7 @@
     },
     "take_amulet": {
         "text": "With careful grace, Archer scoops the silver amulet into his paw. It shimmers with an unearthly radiance, sending a pleasant warmth through his leg. \"A gift from the garden itself? I’m as flattered as I am intrigued.\"",
+        "image" : "assets/image/amulet.jpeg",
         "choices": {
             "Press the amulet to your chest": "press_amulet",
             "Slip the amulet into your fur and move on": "overgrown_hedges"
