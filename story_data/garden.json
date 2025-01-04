@@ -13,7 +13,7 @@
     },
     "admire_blossoms": {
         "text": "\"Yes, yes, I know—I’m magnificent even as I deign to smell the roses. But do they deserve my attention, or must they earn it? We’ll see.\" A breeze ruffles the petals, and Bella’s quiet voice carries on the wind: \"Archer, the garden welcomes seekers of harmony. Don’t let pride blind you to wonders untold.\"",
-        "image" : "assets/image/moonlit_path.webp",
+        "image" : "assets/image/moonlit_path.jpeg",
         "choices": {
             "Reflect on Bella’s wisdom": "reflect_bella",
             "Dismiss Bella’s counsel": "dismiss_bella"
@@ -21,7 +21,7 @@
     },
     "reflect_bella": {
         "text": "Taking a moment, Archer lets Bella’s words sink in. Moonlight kisses each petal in a silver halo, stirring something in his proud heart—just a whisper. Sunshine crows from nearby, \"Humility isn’t a weakness, my friend. It’s solid ground under your paws.\"",
-        "image" : "assets/image/bella_wisdom.webp",
+        "image" : "assets/image/bella_wisdom.jpeg",
         "choices": {
             "Embrace humility (High Noble Path)": "embrace_humility",
             "Change the subject (Redirect to Overgrown Hedges)": "overgrown_hedges"
