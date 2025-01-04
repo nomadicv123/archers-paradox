@@ -1,7 +1,7 @@
 {
     "start": {
         "text": "\"The Garden stretches before me like a dream made of dew and moonbeams. If magic exists, it surely gathers here—swirling among the petals, whispering on the breeze. But which path will reveal the best secrets, and which will merely amuse me? Let’s find out.\"",
-        "image" : "assets/image/garden.png",
+        "image" : "assets/image/garden.jpeg",
         "choices": {
             "Pause to admire the moonlit blossoms": "admire_blossoms",
             "Slink toward the overgrown hedges": "overgrown_hedges",
