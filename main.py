@@ -268,7 +268,7 @@ def main():
                 st.download_button(
                     label="Download Progress JSON",
                     data=progress_json,
-                    file_name="archers_adventure_progress.json",
+                    file_name="archers_paradox_progress.json",
                     mime="application/json"
                 )
 

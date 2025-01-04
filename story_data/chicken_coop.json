@@ -1,6 +1,6 @@
 {
     "start": {
-        "text": "\"The coop seems alive tonight—soft clucks and glowing eyes shimmer in the darkness. Straw crackles beneath your paws as you approach, nose twitching at the scent of feathers and secrets. Archer’s tail flicks with anticipation. ‘Am I intruding on fowl territory, or are they intruding on mine? Let’s see who rules this roost tonight.’\"",
+        "text": "The coop seems alive tonight—soft clucks and glowing eyes shimmer in the darkness. Straw crackles beneath your paws as you approach, nose twitching at the scent of feathers and secrets. Archer’s tail flicks with anticipation. \"Am I intruding on fowl territory, or are they intruding on mine? Let’s see who rules this roost tonight.\"",
         "choices": {
             "Snoop around the nesting boxes": "nesting_boxes",
             "Approach the Hentourage (Penelope & friends)": "hentourage_intro",
