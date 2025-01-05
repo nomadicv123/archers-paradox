@@ -5,7 +5,7 @@
             "Investigate the gap beneath the fence": "investigate_gap",
             "Attempt to climb the fence": "climb_fence",
             "Signal Hedgewatch Hedgequarters": "hedge_contact",
-            "Return to the coop": "coop_exit.json"
+            "Return to Start": "intro.json"
         },
         "rewards": {
             "points": 5
@@ -236,7 +236,7 @@
             "Investigate the gap again": "investigate_gap",
             "Climb the fence": "climb_fence",
             "Signal Hedgewatch": "hedge_contact",
-            "Return to the coop": "coop_exit.json",
+            "Return to the coop": "chicken_coop.json",
             "Head to the garden": "garden.json",
             "Slip off toward the creek": "creek.json",
             "Check Hedgewatch territory": "hedgewatch.json"

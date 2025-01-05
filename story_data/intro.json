@@ -4,10 +4,7 @@
         "choices": {
             "Explore the Garden": "garden.json",
             "Investigate the Chicken Coop": "chicken_coop.json",
-            "Nap and Treats Expansion": {
-                "tease": "This path requires the 'Nap and Treats' Expansion pack.",
-                "unlock_key": "naps_and_treats.json"
-            },
+            "Climb the Fence" : "fence.json",
             "Open Schrödinger's Box" : {
                 "tease" : "This path requires the 'Schrödinger's Box' Expansion Pack",
                 "unlock_key" : "Schrodingers.json"

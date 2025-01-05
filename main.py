@@ -320,7 +320,7 @@ def main():
     # Display Configurable Title and Subtitle
     # ------------------------------
     st.markdown("<h1 style='text-align: center;'>Archer's Paradox</h1>", unsafe_allow_html=True)
-    st.markdown("<h3 style='text-align: center;'>//v 1.2</h3>", unsafe_allow_html=True)
+    st.markdown("<h3 style='text-align: center;'>//v 1.2.1</h3>", unsafe_allow_html=True)
 
     # ------------------------------
     # Display Horizontal Rule
